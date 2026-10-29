@@ -61,7 +61,8 @@ img{display:block;max-width:100%}
 .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:16vh 0 22px}
 .sec-head h2{font-weight:500;font-size:clamp(32px,4vw,56px);letter-spacing:-.04em;line-height:1}
 .sec-head .cnt{font-size:clamp(32px,4vw,56px);letter-spacing:-.04em;line-height:1;color:var(--mute);font-variant-numeric:tabular-nums}
-.tabs{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--card);margin-bottom:22px;max-width:100%;overflow-x:auto}
+.tabs{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--card);margin-bottom:22px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
 .tabs button{height:36px;padding:0 16px;border-radius:999px;font-size:15px;color:var(--mute);white-space:nowrap;transition:background .3s,color .3s}
 .tabs button[aria-selected=true]{background:var(--pill);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .tabs button:hover{color:var(--ink)}

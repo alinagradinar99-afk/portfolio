@@ -111,7 +111,7 @@ img{display:block;max-width:100%}
 .meta{display:grid;grid-template-columns:1fr;gap:10px;padding:20px 0 8px;opacity:0;transform:translateY(14px);transition:opacity .8s .25s var(--ease),transform .8s .25s var(--ease)}
 .card.in .meta{opacity:1;transform:none}
 .meta h3{font-weight:600;font-size:clamp(18px,1.5vw,21px);letter-spacing:-.01em;line-height:1.25}
-.meta small{display:block;color:var(--mute);font-size:15px;line-height:1.4;margin-top:6px}
+.meta small{display:block;color:var(--mute);font-size:15px;line-height:1.4;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta p{font-size:16px;line-height:1.55;max-width:36em}
 .meta .lnk{display:inline-flex;gap:6px;margin-top:14px;font-size:16px;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;transition:color .2s}
 .meta .lnk i{font-style:normal;text-decoration:none;display:inline-block;transition:transform .35s var(--ease)}
@@ -222,13 +222,13 @@ footer a:hover{color:var(--ink)}
 
 <script>
 const P=[
- {id:'ai',sub:'Продукт под NDA<br>в работе',d:'Проектирую веб- и мобильную версию ИИ-платформы, которая по фото делает редизайн, меблировку и визуализацию: дашборд, сценарии генерации, библиотеку проектов.',note:'',f:'product',t:'AI-сервис для интерьера',cat:'Продукт · NDA',c:'#e3ddf3',cover:'img/cover-ai.webp',coverW:'img/cover-ai-w.jpg',label:'NDA',
+ {id:'ai',sub:'Продукт под NDA, в работе',d:'Проектирую веб- и мобильную версию ИИ-платформы, которая по фото делает редизайн, меблировку и визуализацию: дашборд, сценарии генерации, библиотеку проектов.',note:'',f:'product',t:'AI-сервис для интерьера',cat:'Продукт · NDA',c:'#e3ddf3',cover:'img/cover-ai.webp?v=2',coverW:'img/cover-ai-w.jpg',label:'NDA',
   tags:['Продукт','AI','Мобайл'],
   s:'ИИ-платформа: по фото делает редизайн, меблировку и визуализацию за минуты.',
   facts:[['Клиент','NDA'],['Роль','UX/UI-дизайн продукта'],['Платформы','Веб и мобайл'],['Статус','В работе']],
   text:['ИИ-платформа для интерьера: по фотографии создаёт или улучшает пространство — от ремонта и меблировки до готовой визуализации.','Проектирую веб- и мобильную версию: дашборд, сценарии редизайна, меблировки и расхламления, выбор параметров генерации, библиотеку проектов и уведомления. Экраны скрыты по NDA.'],
   gal:[{src:'img/interior.jpg'},{src:'img/ai-mobile.jpg'}]},
- {id:'forbes',sub:'Спецпроект для Forbes<br>Silver Mercury, 2026',d:'Спроектировала игровой раздел на сайте Forbes: квизы на эрудицию, логику и стратегию для десктопа и мобайла. Проект получил Silver Mercury в номинации «Лучший диджитал-проект».',note:'',f:'site',t:'Forbes Games',cat:'Спецпроект · Веб и мобайл',c:'#0d0b08',cover:'img/cover-forbes.jpg',coverW:'img/cover-forbes-w.jpg',
+ {id:'forbes',sub:'Спецпроект для Forbes, Silver Mercury, 2026',d:'Спроектировала игровой раздел на сайте Forbes: квизы на эрудицию, логику и стратегию для десктопа и мобайла. Проект получил Silver Mercury в номинации «Лучший диджитал-проект».',note:'',f:'site',t:'Forbes Games',cat:'Спецпроект · Веб и мобайл',c:'#0d0b08',cover:'img/cover-forbes.jpg',coverW:'img/cover-forbes-w.jpg',
   tags:['Веб','Мобайл','2026'],award:'Silver Mercury',
   s:'Игровой раздел на сайте Forbes. Silver Mercury в номинации «Лучший диджитал-проект».',
   facts:[['Клиент','Forbes Russia'],['Роль','UX/UI-дизайн'],['Платформы','Десктоп и мобайл'],['Награда','Silver Mercury 2026']],
@@ -248,14 +248,14 @@ const P=[
   facts:[['Клиент','Авиакомпания «Ямал»'],['Роль','UX/UI-дизайн'],['Объём','Сайт, ЛК, заказ'],['Тип','Веб-сервис']],
   text:['Сайт авиакомпании с личным кабинетом пассажира и сценарием оформления заказа.'],
   gal:[{src:'img/yamal.jpg'}]},
- {id:'ultra',sub:'Концепт сайта<br>производитель КИПиА',d:'Концепция сайта российского производителя расходомеров и уровнемеров: главная со сценой «внутрь прибора», каталог с умным фильтром и карточка прибора с запросом ТКП.',note:'',f:'concept',t:'ГК «Ультра»',cat:'Концепт · Сайт производителя',c:'#2a1f4d',cover:'img/cover-ultra.jpg',coverW:'img/cover-ultra-w.jpg',label:'Концепт',
+ {id:'ultra',sub:'Концепт сайта, производитель КИПиА',d:'Концепция сайта российского производителя расходомеров и уровнемеров: главная со сценой «внутрь прибора», каталог с умным фильтром и карточка прибора с запросом ТКП.',note:'',f:'concept',t:'ГК «Ультра»',cat:'Концепт · Сайт производителя',c:'#2a1f4d',cover:'img/cover-ultra.jpg',coverW:'img/cover-ultra-w.jpg',label:'Концепт',
   tags:['Концепт','Каталог','B2B'],
   s:'Концепция сайта российского производителя расходомеров и уровнемеров.',
   facts:[['Клиент','ГК «Ультра»'],['Роль','Концепция, UX/UI'],['Страницы','Главная, каталог, карточка'],['Год','2026']],
   text:['Задача — показать производителя КИПиА технологичной компанией с собственной метрологической базой и сделать каталог сложных приборов понятным.','Тёмная техническая эстетика, 3D-прибор на первом экране и сцена «внутрь прибора» при прокрутке. В каталоге — умный фильтр по среде, сигналу и исполнению, «подбор за 10 секунд» на главной и карточка прибора с ключевыми характеристиками и запросом ТКП.'],
   url:'https://alinagradinar99-afk.github.io/ultra-concept/',urlT:'Смотреть концепт',
   gal:[{src:'img/ultra-home.jpg'},{src:'img/ultra-catalog.jpg'},{src:'img/ultra-product.jpg'}]},
- {id:'buildeng',sub:'Концепт главной<br>B2B e-commerce',d:'Концепция главной для поставщика инженерного оборудования: поиск по названию, артикулу и бренду, каталог категорий с брендами и блок подбора инженерных решений.',note:'',f:'concept',t:'BuildEng',cat:'Концепт · B2B e-commerce',c:'#b9cad9',cover:'img/cover-buildeng.jpg?v=5',coverW:'img/cover-buildeng-w.jpg?v=5',label:'Концепт',
+ {id:'buildeng',sub:'Концепт главной, B2B e-commerce',d:'Концепция главной для поставщика инженерного оборудования: поиск по названию, артикулу и бренду, каталог категорий с брендами и блок подбора инженерных решений.',note:'',f:'concept',t:'BuildEng',cat:'Концепт · B2B e-commerce',c:'#b9cad9',cover:'img/cover-buildeng.jpg?v=5',coverW:'img/cover-buildeng-w.jpg?v=5',label:'Концепт',
   tags:['Концепт','E-com','B2B'],
   s:'Концепция главной для поставщика инженерного оборудования.',
   facts:[['Клиент','BuildEng'],['Роль','Концепция, UX/UI'],['Объём','Главная страница, десктоп'],['Год','2026']],

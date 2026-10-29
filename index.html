@@ -370,7 +370,7 @@ function render(i){
   ci=i;const p=P[i],nx=P[(i+1)%P.length];
   const gal=p.gal.map(g=>g.duo?`<figure class="duo">${g.duo.map(s=>`<img src="${s}" alt="" loading="lazy">`).join('')}</figure>`:`<figure style="--c:${p.c}"><img src="${g.src}" alt="${p.t}" loading="lazy"></figure>`).join('');
   cwrap.innerHTML=`<div class="cbody">
-    <div class="ctags">${p.label?`<span>${p.label}</span>`:''}${p.award?`<span class="hl">${p.award}</span>`:''}${p.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+    <div class="ctags">${p.label&&!p.tags.includes(p.label)?`<span>${p.label}</span>`:''}${p.award?`<span class="hl">${p.award}</span>`:''}${p.tags.map(t=>`<span>${t}</span>`).join('')}</div>
     <h2 id="ctitle">${p.t}</h2>
     <div class="cgrid"><div class="facts">${p.facts.map(([k,v])=>`<div><small>${k}</small>${v}</div>`).join('')}</div>
       <div class="ctext">${p.text.map(t=>`<p>${t}</p>`).join('')}${p.url?`<a class="pill dark go" href="${p.url}" target="_blank" rel="noopener">${p.urlT} ↗</a>`:''}</div></div>

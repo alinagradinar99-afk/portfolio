@@ -98,7 +98,6 @@ img{display:block;max-width:100%}
 .shot{position:relative;border-radius:var(--r);overflow:hidden;background:var(--c,var(--soft));aspect-ratio:4/3;clip-path:inset(7% 7% 7% 7% round var(--r));transition:clip-path 1.1s var(--ease)}
 .card.wide .shot{aspect-ratio:16/8}
 .shot img{width:100%;height:100%;object-fit:cover;scale:1.14;transition:scale 1.4s var(--ease)}
-.shot.frame img{position:absolute;left:7%;top:50%;width:86%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;translate:0 -50%;border-radius:10px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
 .card.in .shot{clip-path:inset(0 0 0 0 round var(--r))}
 .card.in .shot img{scale:1}
 .card.in:hover .shot img{scale:1.035;transition-duration:.9s}
@@ -275,61 +274,61 @@ footer a:hover{color:var(--ink)}
 
 <script>
 const P=[
- {id:'forbes',f:'site',wide:1,t:'Forbes Games',cat:'Спецпроект · Веб и мобайл',c:'#0d0b08',cover:'img/forbes-laptop.jpg',
+ {id:'forbes',f:'site',wide:1,t:'Forbes Games',cat:'Спецпроект · Веб и мобайл',c:'#0d0b08',cover:'img/cover-forbes.jpg',coverW:'img/cover-forbes-w.jpg',
   tags:['Веб','Мобайл','2026'],award:'Silver Mercury',
   s:'Игровой раздел на сайте Forbes. Silver Mercury в номинации «Лучший диджитал-проект».',
   facts:[['Клиент','Forbes Russia'],['Роль','UX/UI-дизайн'],['Платформы','Десктоп и мобайл'],['Награда','Silver Mercury 2026']],
   text:['Интеллектуальные игры для читателей Forbes: квизы на эрудицию, логику и стратегию прямо на сайте издания.','Спроектировала главную игрового раздела и сценарий квиза: старт, вопросы с подсказкой из материалов Forbes, результат и переход к подписке. Тёмная подача с золотыми акцентами продолжает стиль бренда.'],
   url:'https://games.forbes.ru/',urlT:'Открыть Forbes Games',
   gal:[{src:'img/forbes-laptop.jpg'},{duo:['img/forbes-phone.jpg','img/forbes-start.jpg']},{src:'img/forbes.jpg'}]},
- {id:'ultra',f:'concept',frame:1,t:'ГК «Ультра»',cat:'Концепт · Сайт производителя',c:'#2a1f4d',cover:'img/ultra-home.jpg',label:'Концепт',
+ {id:'ultra',f:'concept',t:'ГК «Ультра»',cat:'Концепт · Сайт производителя',c:'#2a1f4d',cover:'img/cover-ultra.jpg',coverW:'img/cover-ultra-w.jpg',label:'Концепт',
   tags:['Концепт','Каталог','B2B'],
   s:'Концепция сайта российского производителя расходомеров и уровнемеров.',
   facts:[['Клиент','ГК «Ультра»'],['Роль','Концепция, UX/UI'],['Страницы','Главная, каталог, карточка'],['Год','2026']],
   text:['Задача — показать производителя КИПиА технологичной компанией с собственной метрологической базой и сделать каталог сложных приборов понятным.','Тёмная техническая эстетика, 3D-прибор на первом экране и сцена «внутрь прибора» при прокрутке. В каталоге — умный фильтр по среде, сигналу и исполнению, «подбор за 10 секунд» на главной и карточка прибора с ключевыми характеристиками и запросом ТКП.'],
   url:'https://alinagradinar99-afk.github.io/ultra-concept/',urlT:'Смотреть концепт',
   gal:[{src:'img/ultra-home.jpg'},{src:'img/ultra-catalog.jpg'},{src:'img/ultra-product.jpg'}]},
- {id:'ai',f:'product',frame:1,t:'AI-сервис для интерьера',cat:'Продукт · NDA',c:'#e3ddf3',cover:'img/interior.jpg',label:'NDA · в работе',
+ {id:'ai',f:'product',t:'AI-сервис для интерьера',cat:'Продукт · NDA',c:'#e3ddf3',cover:'img/cover-ai.jpg',coverW:'img/cover-ai-w.jpg',label:'NDA · в работе',
   tags:['Продукт','AI','Мобайл'],
   s:'ИИ-платформа: по фото делает редизайн, меблировку и визуализацию за минуты.',
   facts:[['Клиент','NDA'],['Роль','UX/UI-дизайн продукта'],['Платформы','Веб и мобайл'],['Статус','В работе']],
   text:['ИИ-платформа для интерьера: по фотографии создаёт или улучшает пространство — от ремонта и меблировки до готовой визуализации.','Проектирую веб- и мобильную версию: дашборд, сценарии редизайна, меблировки и расхламления, выбор параметров генерации, библиотеку проектов и уведомления. Экраны скрыты по NDA.'],
   gal:[{src:'img/interior.jpg'},{src:'img/ai-mobile.jpg'}]},
- {id:'buildeng',f:'concept',frame:1,t:'BuildEng',cat:'Концепт · B2B e-commerce',c:'#b9cad9',cover:'img/buildeng-home.jpg',label:'Концепт',
+ {id:'buildeng',f:'concept',t:'BuildEng',cat:'Концепт · B2B e-commerce',c:'#b9cad9',cover:'img/cover-buildeng.jpg',coverW:'img/cover-buildeng-w.jpg',label:'Концепт',
   tags:['Концепт','E-com','B2B'],
   s:'Концепция главной для поставщика инженерного оборудования.',
   facts:[['Клиент','BuildEng'],['Роль','Концепция, UX/UI'],['Объём','Главная страница, десктоп'],['Год','2026']],
   text:['Задача — показать поставщика инженерного оборудования современной технологичной компанией: экспертиза B2B и удобство интернет-магазина.','Шапка с поиском по названию, артикулу и бренду, регионом и входом для юрлиц; первый экран с видео и подборкой оборудования; каталог категорий с брендами и количеством позиций; блок инженерных решений и подбора.'],
   url:'https://alinagradinar99-afk.github.io/buildeng-site/',urlT:'Смотреть концепт',
   gal:[{src:'img/buildeng-home.jpg'},{src:'img/buildeng-catalog.jpg'}]},
- {id:'yamal',f:'site',t:'Авиакомпания «Ямал»',cat:'Сайт · Личный кабинет',c:'#2f6aa8',cover:'img/yamal.jpg',
+ {id:'yamal',f:'site',t:'Авиакомпания «Ямал»',cat:'Сайт · Личный кабинет',c:'#2f6aa8',cover:'img/cover-yamal.jpg',coverW:'img/cover-yamal-w.jpg',
   tags:['Веб','Личный кабинет'],
   s:'Сайт авиакомпании, личный кабинет пассажира и оформление заказа.',
   facts:[['Клиент','Авиакомпания «Ямал»'],['Роль','UX/UI-дизайн'],['Объём','Сайт, ЛК, заказ'],['Тип','Веб-сервис']],
   text:['Сайт авиакомпании с личным кабинетом пассажира и сценарием оформления заказа.'],
   gal:[{src:'img/yamal.jpg'}]},
- {id:'reuzeit',f:'product',wide:1,t:'REUZEit',cat:'Продукт · B2B-маркетплейс',c:'#1d7a47',cover:'img/reuzeit.jpg',
+ {id:'reuzeit',f:'product',wide:1,t:'REUZEit',cat:'Продукт · B2B-маркетплейс',c:'#1d7a47',cover:'img/cover-reuzeit.jpg',coverW:'img/cover-reuzeit-w.jpg',
   tags:['Маркетплейс','B2B','США'],
   s:'Калифорнийская платформа для продажи б/у лабораторного и промышленного оборудования.',
   facts:[['Клиент','REUZEit, США'],['Роль','UX/UI-дизайн'],['Тип','B2B-маркетплейс'],['Язык','Английский']],
   text:['Платформа из Калифорнии для продажи и покупки б/у лабораторного, медицинского и промышленного оборудования.','Личный кабинет компании: заявки, заказы, проекты, календарь вывоза и статистика по повторно использованному оборудованию.'],
   url:'https://reuzeit.com/',urlT:'Открыть reuzeit.com',
   gal:[{src:'img/reuzeit.jpg'}]},
- {id:'sgsh',f:'site',t:'Сибгипрошахт',cat:'Сайт · Корпоративный',c:'#1b1b1b',cover:'img/sgsh_s.jpg',
+ {id:'sgsh',f:'site',t:'Сибгипрошахт',cat:'Сайт · Корпоративный',c:'#1b1b1b',cover:'img/cover-sgsh.jpg',coverW:'img/cover-sgsh-w.jpg',
   tags:['Корпоративный сайт'],
   s:'Корпоративный сайт проектного института для горной отрасли.',
   facts:[['Клиент','Сибгипрошахт'],['Роль','UX/UI-дизайн'],['Тип','Корпоративный сайт'],['Адаптив','Десктоп и мобайл']],
   text:['Корпоративный сайт института, который проектирует обогатительные фабрики, шахты и разрезы.'],
   url:'https://sgsh.ru/',urlT:'Открыть sgsh.ru',
   gal:[{src:'img/sgsh.gif'}]},
- {id:'aquro',f:'site',t:'Aquro',cat:'Сайт · Лендинг',c:'#dcd5e6',cover:'img/aquro.jpg',
+ {id:'aquro',f:'site',t:'Aquro',cat:'Сайт · Лендинг',c:'#dcd5e6',cover:'img/cover-aquro.jpg',coverW:'img/cover-aquro-w.jpg',
   tags:['Лендинг','Каталог'],
   s:'Продуктовый лендинг с каталогом продукции.',
   facts:[['Клиент','Aquro'],['Роль','UX/UI-дизайн'],['Тип','Лендинг с каталогом'],['Сайт','aquro.ru']],
   text:['Продуктовый лендинг с каталогом продукции.'],
   url:'https://aquro.ru/',urlT:'Открыть aquro.ru',
   gal:[{src:'img/aquro.jpg'}]},
- {id:'gen',f:'product',wide:1,t:'Генерация изображений',cat:'AI-визуалы',c:'#170e10',cover:'img/gen.jpg',
+ {id:'gen',f:'product',wide:1,t:'Генерация изображений',cat:'AI-визуалы',c:'#170e10',cover:'img/cover-gen.jpg',coverW:'img/cover-gen-w.jpg',
   tags:['AI','Визуалы'],
   s:'Предметные изображения и визуалы, созданные с помощью нейросетей.',
   facts:[['Тип','AI-визуалы'],['Роль','Генерация изображений']],
@@ -356,10 +355,12 @@ document.querySelectorAll('.rv,.photo').forEach(el=>io.observe(el));
 
 // ── projects ──
 const grid=$('#grid');
+const src=(p,wd)=>wd&&innerWidth>900?p.coverW:p.cover;
+addEventListener('resize',()=>grid.querySelectorAll('.card').forEach(c=>{c.querySelector('.shot img').src=src(P[c.dataset.i],c.classList.contains('wide'))}));
 $('#wkc').textContent=pad(N);
 P.forEach((p,i)=>{
   const b=document.createElement('button');b.className='card'+(p.wide?' wide':'');b.dataset.i=i;b.dataset.f=p.f;
-  b.innerHTML=`<div class="shot${p.frame?' frame':''}" style="--c:${p.c}"><img src="${p.cover}" alt="${p.t}" loading="lazy">${p.label?`<span class="lbl">${p.label}</span>`:''}</div>
+  b.innerHTML=`<div class="shot" style="--c:${p.c}"><img src="${src(p,p.wide)}" alt="${p.t}" loading="lazy">${p.label?`<span class="lbl">${p.label}</span>`:''}</div>
   <div class="meta"><div><h3>${p.t} <i>↗</i></h3><p>${p.s}</p></div><div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div></div>`;
   b.onclick=()=>show(i);
   grid.append(b);io.observe(b);
@@ -368,7 +369,7 @@ document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
   const f=b.dataset.f;let n=0;
   grid.querySelectorAll('.card').forEach(c=>{const on=f==='all'||c.dataset.f===f;c.hidden=!on;if(on)n++;
-    c.classList.toggle('wide',f==='all'&&!!P[c.dataset.i].wide);
+    const wd=f==='all'&&!!P[c.dataset.i].wide;c.classList.toggle('wide',wd);c.querySelector('.shot img').src=src(P[c.dataset.i],wd);
     if(on){c.classList.remove('in');requestAnimationFrame(()=>requestAnimationFrame(()=>c.classList.add('in')))}});
   $('#wkc').textContent=pad(n);
 });

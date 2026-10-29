@@ -306,9 +306,9 @@ const grid=$('#grid');
 const src=p=>p.cover;
 addEventListener('resize',()=>grid.querySelectorAll('.card').forEach(c=>{c.querySelector('.shot img').src=src(P[c.dataset.i])}));
 P.forEach((p,i)=>{
-  const b=document.createElement('button');b.className='card'+(i>3?' s3':'');b.dataset.i=i;b.dataset.f=p.f;
+  const b=document.createElement('button');b.className='card';b.dataset.i=i;b.dataset.f=p.f;
   b.innerHTML=`<div class="shot" style="--c:${p.c}"><img src="${src(p)}" alt="${p.t}" loading="lazy">${p.label?`<span class="lbl">${p.label}</span>`:''}</div>
-  <div class="meta"><div class="k"><h3>${p.t}</h3><small>${p.sub}</small></div><div><p>${p.d}</p><span class="lnk">Смотреть кейс <i>↗</i></span>${p.note?`<small class="note">(${p.note})</small>`:''}</div></div>`;
+  <div class="meta"><div class="k"><h3>${p.t}</h3><small>${p.sub}</small></div><div><p>${p.d}</p></div></div>`;
   b.onclick=()=>show(i);
   grid.append(b);io.observe(b);
 });

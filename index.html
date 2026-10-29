@@ -107,8 +107,8 @@ img{display:block;max-width:100%}
 .card.in .shot{clip-path:inset(0 0 0 0 round var(--r))}
 .card.in .shot img{scale:1}
 .card.in:hover .shot img{scale:1.035;transition-duration:.9s}
-.shot .lbl{position:absolute;top:14px;left:14px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);font-size:13px;font-weight:500;color:var(--ink)}
-.meta{display:grid;grid-template-columns:1fr;gap:10px;padding:20px 0 28px;border-bottom:1px solid var(--line);opacity:0;transform:translateY(14px);transition:opacity .8s .25s var(--ease),transform .8s .25s var(--ease)}
+.shot .lbl{position:absolute;top:14px;left:14px;padding:5px 9px;border-radius:4px;background:rgba(255,255,255,.62);backdrop-filter:blur(8px);font-size:13px;font-weight:500;color:var(--ink)}
+.meta{display:grid;grid-template-columns:1fr;gap:10px;padding:20px 0 8px;opacity:0;transform:translateY(14px);transition:opacity .8s .25s var(--ease),transform .8s .25s var(--ease)}
 .card.in .meta{opacity:1;transform:none}
 .meta h3{font-weight:600;font-size:clamp(18px,1.5vw,21px);letter-spacing:-.01em;line-height:1.25}
 .meta small{display:block;color:var(--mute);font-size:15px;line-height:1.4;margin-top:6px}
@@ -141,7 +141,7 @@ footer a:hover{color:var(--ink)}
 .cbody.in>*:nth-child(2){animation-delay:.07s}.cbody.in>*:nth-child(3){animation-delay:.14s}.cbody.in>*:nth-child(n+4){animation-delay:.21s}
 @keyframes rise{to{opacity:1;transform:none}}
 .ctags{display:flex;flex-wrap:wrap;gap:6px}
-.ctags span{padding:7px 12px;border-radius:999px;background:var(--soft);font-size:14px}
+.ctags span{padding:6px 10px;border-radius:4px;background:rgba(17,17,17,.06);font-size:14px}
 .ctags span.gold{background:#f1c94b}
 .cbody h2{font-weight:600;font-size:clamp(42px,7.5vw,120px);letter-spacing:-.025em;line-height:.94;margin:22px 0 0}
 .cgrid{display:grid;grid-template-columns:1fr 2fr;gap:var(--g);margin-top:7vh;padding-top:20px;border-top:1px solid var(--line)}
@@ -222,7 +222,7 @@ footer a:hover{color:var(--ink)}
 
 <script>
 const P=[
- {id:'ai',sub:'Продукт под NDA<br>в работе',d:'Проектирую веб- и мобильную версию ИИ-платформы, которая по фото делает редизайн, меблировку и визуализацию: дашборд, сценарии генерации, библиотеку проектов.',note:'',f:'product',t:'AI-сервис для интерьера',cat:'Продукт · NDA',c:'#e3ddf3',cover:'img/cover-ai.jpg',coverW:'img/cover-ai-w.jpg',label:'NDA · в работе',
+ {id:'ai',sub:'Продукт под NDA<br>в работе',d:'Проектирую веб- и мобильную версию ИИ-платформы, которая по фото делает редизайн, меблировку и визуализацию: дашборд, сценарии генерации, библиотеку проектов.',note:'',f:'product',t:'AI-сервис для интерьера',cat:'Продукт · NDA',c:'#e3ddf3',cover:'img/cover-ai.webp',coverW:'img/cover-ai-w.jpg',label:'NDA',
   tags:['Продукт','AI','Мобайл'],
   s:'ИИ-платформа: по фото делает редизайн, меблировку и визуализацию за минуты.',
   facts:[['Клиент','NDA'],['Роль','UX/UI-дизайн продукта'],['Платформы','Веб и мобайл'],['Статус','В работе']],
@@ -283,6 +283,8 @@ const P=[
   text:['Предметные изображения и визуалы, созданные с помощью нейросетей.'],
   gal:[{src:'img/gen.jpg'}]}
 ];
+const NB=/(^|[\s(«„"])(в|во|и|а|но|с|со|к|ко|о|об|у|я|на|по|для|от|до|из|за|не|ни|что|без|под|при|про|над|как|или|это|их|его|её)\s+/gi;
+function typo(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const t=n.nodeValue.replace(NB,(m,a,b)=>a+b+'\u00a0').replace(NB,(m,a,b)=>a+b+'\u00a0').replace(/\s+—/g,'\u00a0—');if(t!==n.nodeValue)n.nodeValue=t}}
 const $=s=>document.querySelector(s), pad=n=>String(n).padStart(2,'0'), N=P.length;
 
 // clock
@@ -290,9 +292,10 @@ const tick=()=>{$('#clock').textContent='Краснодар, '+new Date().toLoca
 tick();setInterval(tick,30000);
 
 // headline words
+typo(document.body);
 const hl=$('#hl');
 (function split(el){[...el.childNodes].forEach(n=>{
-  if(n.nodeType===3){const f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w)){f.append(w);return}const s=document.createElement('span');s.className='w';s.textContent=w;f.append(s)});n.replaceWith(f)}
+  if(n.nodeType===3){const f=document.createDocumentFragment();n.textContent.split(/([ \t\n]+)/).forEach(w=>{if(!w)return;if(/^[ \t\n]+$/.test(w)){f.append(w);return}const s=document.createElement('span');s.className='w';s.textContent=w;f.append(s)});n.replaceWith(f)}
   else split(n)})})(hl);
 hl.querySelectorAll('.w').forEach((w,i)=>w.style.transitionDelay=i*40+'ms');
 setTimeout(()=>hl.classList.add('in'),100);
@@ -310,7 +313,7 @@ P.forEach((p,i)=>{
   b.innerHTML=`<div class="shot" style="--c:${p.c}"><img src="${src(p)}" alt="${p.t}" loading="lazy">${p.label?`<span class="lbl">${p.label}</span>`:''}</div>
   <div class="meta"><div class="k"><h3>${p.t}</h3><small>${p.sub}</small></div><div><p>${p.d}</p></div></div>`;
   b.onclick=()=>show(i);
-  grid.append(b);io.observe(b);
+  grid.append(b);io.observe(b);typo(b);
 });
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
@@ -341,6 +344,7 @@ function render(i){
   $('#cn').textContent=pad(i+1)+' / '+pad(N);
   $('#nx').onclick=()=>show((i+1)%N);
   sheet.scrollTop=0;
+  typo(cwrap);
   requestAnimationFrame(()=>cwrap.firstElementChild.classList.add('in'));
 }
 function show(i,push=true){render(i);if(push)history.replaceState(null,'','#'+P[i].id);

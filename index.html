@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Алина Градинар — UX/UI дизайнер</title>
+<meta name="description" content="UX/UI и веб-дизайнер с опытом более 4 лет. Портфолио: Forbes Games, Авиакомпания «Ямал», REUZEit и другие проекты.">
+<meta property="og:title" content="Алина Градинар — UX/UI дизайнер">
+<meta property="og:description" content="Проектирую интерфейсы, которые решают бизнес-задачи и делают опыт понятным.">
+<meta property="og:image" content="img/forbes.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23ff3d7f'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1f0ec; --ink:#111; --mute:#77756f; --line:#111; --soft:#e4e2dc;
+  --pink:#ff3d7f;
+  --sans:"Inter Tight",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+::selection{background:var(--pink);color:#fff}
+
+/* ── menu bar ── */
+.bar{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;gap:18px;height:40px;padding:0 16px;
+  font-size:13px;font-weight:500;background:rgba(241,240,236,.72);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(0,0,0,.08)}
+.bar .logo{display:flex;align-items:center;gap:8px;font-weight:600}
+.bar .logo i{width:12px;height:12px;border-radius:50%;background:var(--pink);display:block}
+.bar nav{display:flex;gap:16px}
+.bar nav a{opacity:.7;transition:opacity .2s}
+.bar nav a:hover{opacity:1}
+.bar .right{margin-left:auto;display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px}
+.status{display:flex;align-items:center;gap:7px}
+.status i{width:7px;height:7px;border-radius:50%;background:#27c46b;box-shadow:0 0 0 0 rgba(39,196,107,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 7px rgba(39,196,107,0)}100%{box-shadow:0 0 0 0 rgba(39,196,107,0)}}
+
+/* ── hero ── */
+.hero{position:relative;min-height:100svh;padding:110px 16px 32px;display:flex;flex-direction:column;justify-content:flex-end}
+.hero h1{font-weight:500;font-size:clamp(56px,13.2vw,230px);line-height:.86;letter-spacing:-.055em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .ln span{display:inline-block;transform:translateY(105%);animation:up 1.1s var(--ease) forwards}
+.hero h1 .ln:nth-child(2) span{animation-delay:.12s}
+@keyframes up{to{transform:none}}
+.hero .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-size:15px;line-height:1.35;opacity:0;animation:fade .8s .6s forwards}
+.hero .meta b{display:block;font-family:var(--mono);font-weight:400;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:6px}
+@keyframes fade{to{opacity:1}}
+
+.sticker{position:absolute;z-index:5;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:box-shadow .2s}
+.sticker:active{cursor:grabbing}
+.sticker.photo{top:16vh;right:7vw;width:clamp(130px,15vw,230px);transform:rotate(6deg);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.18);border:5px solid #fff;
+  opacity:0;animation:pop .9s .5s var(--ease) forwards}
+.sticker.photo img{pointer-events:none;aspect-ratio:4/5;object-fit:cover;width:100%}
+.sticker.award{top:28vh;right:calc(7vw + clamp(110px,13vw,200px));width:132px;height:132px;border-radius:50%;background:#f4c542;display:grid;place-items:center;text-align:center;
+  font-family:var(--mono);font-size:11px;line-height:1.25;text-transform:uppercase;letter-spacing:.04em;transform:rotate(-12deg);box-shadow:0 12px 30px rgba(0,0,0,.14);opacity:0;animation:pop .9s .75s var(--ease) forwards}
+.sticker.award strong{display:block;font-family:var(--sans);font-size:20px;letter-spacing:-.02em;text-transform:none;font-weight:600}
+.sticker.note{top:58px;left:42vw;padding:10px 14px;background:#c9b8ff;border-radius:999px;font-family:var(--mono);font-size:12px;transform:rotate(-4deg);opacity:0;animation:pop .9s 1s var(--ease) forwards}
+@keyframes pop{from{opacity:0;scale:.6}to{opacity:1;scale:1}}
+.hint{position:absolute;top:60px;right:16px;font-family:var(--mono);font-size:11px;color:var(--mute)}
+
+/* ── section head ── */
+section{padding:0 16px}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:90px 0 14px;border-bottom:1px solid var(--line)}
+.head h2{font-weight:500;font-size:clamp(34px,5vw,64px);letter-spacing:-.04em;line-height:1}
+.head h2 sup{font-family:var(--mono);font-size:13px;font-weight:400;letter-spacing:0;vertical-align:top;margin-left:6px}
+.seg{display:flex;border:1px solid var(--ink);border-radius:999px;padding:3px;font-family:var(--mono);font-size:12px;text-transform:uppercase}
+.seg button{padding:6px 14px;border-radius:999px;transition:background .25s,color .25s}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+
+/* ── list view ── */
+.list{list-style:none}
+.list li{border-bottom:1px solid var(--line);overflow:hidden}
+.row{position:relative;display:flex;align-items:baseline;gap:10px;padding:6px 0 4px;cursor:pointer;width:100%;text-align:left}
+.row::before{content:"";position:absolute;inset:0 -16px;background:var(--c);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease)}
+.row:hover::before,.row:focus-visible::before{transform:scaleY(1)}
+.row:hover,.row:focus-visible{color:var(--k)}
+.row>*{position:relative}
+.row .t{font-weight:500;font-size:clamp(30px,6.4vw,104px);line-height:1.02;letter-spacing:-.045em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;transition:transform .45s var(--ease)}
+.row:hover .t{transform:translateX(14px)}
+.row .tag{font-family:var(--mono);font-size:11px;align-self:flex-start;margin-top:.9em;white-space:nowrap;opacity:.8}
+.row .n{margin-left:auto;font-family:var(--mono);font-size:clamp(14px,1.6vw,22px);align-self:center}
+.reveal .row{transform:translateY(105%);transition:transform .9s var(--ease)}
+.reveal.in .row{transform:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+
+.peek{position:fixed;left:0;top:0;z-index:40;width:300px;aspect-ratio:3/2;border-radius:12px;overflow:hidden;pointer-events:none;opacity:0;scale:.7;rotate:-4deg;
+  transition:opacity .25s,scale .35s var(--ease),rotate .35s var(--ease);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.peek.on{opacity:1;scale:1;rotate:3deg}
+.peek img{width:100%;height:100%;object-fit:cover}
+
+/* ── grid view ── */
+.grid{display:none;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding-top:20px}
+.card{display:flex;flex-direction:column;gap:10px;text-align:left;cursor:pointer;opacity:0;transform:translateY(40px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.card.in{opacity:1;transform:none}
+.card .box{position:relative;aspect-ratio:4/5;border-radius:18px;background:var(--c);color:var(--k);padding:16px;overflow:hidden;display:flex;flex-direction:column}
+.card .box small{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;line-height:1.3;opacity:.8}
+.card .box h3{font-weight:500;font-size:clamp(26px,2.6vw,36px);letter-spacing:-.035em;line-height:1;margin-top:10px}
+.card .box img{position:absolute;left:12%;right:-10%;bottom:-6%;width:98%;aspect-ratio:3/2;object-fit:cover;border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.25);transform:rotate(-4deg);transition:transform .6s var(--ease)}
+.card:hover .box img{transform:rotate(0) translateY(-10px) scale(1.04)}
+.card p{font-size:14px;line-height:1.35;color:var(--mute);max-width:32ch}
+
+/* ── desk view ── */
+.desk{display:none;margin-top:20px;border-radius:14px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.12);overflow:hidden;border:1px solid rgba(0,0,0,.08)}
+.desk .top{display:flex;align-items:center;gap:14px;height:46px;padding:0 16px;border-bottom:1px solid var(--soft)}
+.dots{display:flex;gap:7px}.dots i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+.desk .top b{font-weight:600;font-size:14px;letter-spacing:.02em}
+.desk .top span{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--mute)}
+.desk .body{display:grid;grid-template-columns:180px 1fr}
+.desk aside{background:#f3f2f0;padding:16px 14px;font-size:13px;line-height:2}
+.desk aside b{display:block;font-size:11px;color:var(--mute);font-weight:500;margin-top:8px}
+.desk aside i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:-1px}
+.table{position:relative;height:min(68vh,620px);overflow:hidden}
+.file{position:absolute;width:clamp(110px,13vw,170px);text-align:center;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.file:active{cursor:grabbing}
+.file img{width:100%;aspect-ratio:4/3;object-fit:cover;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.18);pointer-events:none;transition:transform .3s var(--ease)}
+.file:hover img{transform:scale(1.05) rotate(-2deg)}
+.file span{display:inline-block;margin-top:6px;font-size:12px;padding:1px 6px;border-radius:4px}
+.file span i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--c)}
+.file.sel span{background:#2f6fe0;color:#fff}
+
+/* ── about ── */
+.about{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding-top:24px}
+.about .pic{border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-height:640px;background:#111}
+.about .pic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.about .pic:hover img{transform:scale(1.04)}
+.about .txt{display:flex;flex-direction:column;gap:28px}
+.about .lead{font-size:clamp(24px,2.8vw,42px);line-height:1.12;letter-spacing:-.03em;font-weight:500}
+.about .lead em{font-style:normal;background:var(--pink);color:#fff;padding:0 .18em;border-radius:.2em}
+.skills{list-style:none;border-top:1px solid var(--line)}
+.skills li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}
+.skills li span{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:7px 13px;border:1px solid var(--ink);border-radius:999px;font-size:13px}
+
+/* ── contact ── */
+.contact{padding-bottom:20px}
+.big{display:block;position:relative;font-weight:500;font-size:clamp(34px,8.6vw,150px);letter-spacing:-.05em;line-height:1.05;padding:10px 0;border-bottom:1px solid var(--line);overflow:hidden;word-break:break-all}
+.big::before{content:"";position:absolute;inset:0 -16px;background:var(--c,var(--pink));transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease)}
+.big:hover::before{transform:scaleY(1)}
+.big:hover{color:#fff}
+.big>*{position:relative}
+.big small{font-family:var(--mono);font-size:12px;letter-spacing:0;vertical-align:top;margin-left:8px}
+footer{display:flex;justify-content:space-between;gap:12px;padding:40px 16px 20px;font-family:var(--mono);font-size:11px;color:var(--mute);text-transform:uppercase}
+
+/* ── project viewer ── */
+.viewer{position:fixed;inset:0;z-index:100;display:none;color:#fff;background:#111;overflow:hidden}
+.viewer.open{display:block}
+.viewer .glow{position:absolute;inset:-15%;background-size:cover;background-position:center;filter:blur(70px) saturate(1.5) brightness(.65);transform:scale(1.1);transition:opacity .6s}
+.viewer .shade{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,.55))}
+.vtop{position:absolute;inset:0 0 auto;display:flex;align-items:center;gap:14px;height:56px;padding:0 16px;z-index:3;font-family:var(--mono);font-size:12px;text-transform:uppercase}
+.vtop .close{margin-left:auto;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);font-size:20px;line-height:1;text-transform:none;transition:background .2s}
+.vtop .close:hover{background:rgba(255,255,255,.28)}
+.stage{position:absolute;inset:56px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;padding:20px 16px 24px;align-items:center}
+.shot{position:relative;height:100%;display:grid;place-items:center;min-height:0}
+.shot img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 30px 90px rgba(0,0,0,.5);object-fit:contain}
+.shot img.enter{animation:zoomIn .9s var(--ease) both}
+@keyframes zoomIn{from{opacity:0;transform:scale(.72) translateX(14%)}to{opacity:1;transform:none}}
+.info{align-self:end;display:flex;flex-direction:column;gap:16px;padding-bottom:8px}
+.info .kind{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
+.info h3{font-weight:500;font-size:clamp(34px,3.6vw,54px);letter-spacing:-.04em;line-height:.98}
+.info p{font-size:16px;line-height:1.45;opacity:.88}
+.info .badge{align-self:flex-start;padding:6px 12px;border-radius:999px;background:#f4c542;color:#111;font-family:var(--mono);font-size:11px;text-transform:uppercase}
+.info .go{align-self:flex-start;padding:12px 20px;border-radius:999px;background:#fff;color:#111;font-weight:500;font-size:15px;transition:transform .3s var(--ease)}
+.info .go:hover{transform:translateX(6px)}
+.info .nav{display:flex;align-items:center;gap:8px;margin-top:12px}
+.info .nav button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.4);font-size:18px;transition:background .2s}
+.info .nav button:hover{background:rgba(255,255,255,.15)}
+.info .nav .next-peek{margin-left:10px;width:64px;aspect-ratio:3/2;border-radius:6px;overflow:hidden;opacity:.55;cursor:pointer;transition:opacity .2s}
+.info .nav .next-peek:hover{opacity:1}
+.info .nav .next-peek img{width:100%;height:100%;object-fit:cover}
+.info .count{font-family:var(--mono);font-size:12px;margin-left:auto;opacity:.75}
+.info>*{opacity:0;transform:translateY(16px)}
+.info.enter>*{animation:rise .7s var(--ease) forwards}
+.info.enter>*:nth-child(2){animation-delay:.06s}.info.enter>*:nth-child(3){animation-delay:.12s}.info.enter>*:nth-child(4){animation-delay:.18s}.info.enter>*:nth-child(5){animation-delay:.24s}.info.enter>*:nth-child(6){animation-delay:.3s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ── responsive ── */
+@media (max-width:860px){
+  .bar nav{display:none}
+  .hero .meta{grid-template-columns:1fr 1fr}
+  .sticker.photo{top:96px;right:16px}
+  .sticker.award{top:auto;bottom:58vh;right:auto;left:16px;width:108px;height:108px;font-size:10px}
+  .sticker.award strong{font-size:16px}
+  .sticker.note{display:none}
+  .hint{display:none}
+  .about{grid-template-columns:1fr}
+  .desk .body{grid-template-columns:1fr}
+  .desk aside{display:none}
+  .stage{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto;gap:18px;overflow:auto}
+  .info{align-self:start}
+}
+@media (max-width:520px){
+  .bar .right .clock{display:none}
+  .head{flex-direction:column;align-items:flex-start}
+  .row .tag{display:none}
+  .seg button{padding:6px 11px}
+}
+@media (hover:none){.peek{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="logo" href="#top"><i></i>Алина Градинар</a>
+  <nav><a href="#works">Работы</a><a href="#about">Обо мне</a><a href="#contact">Контакты</a></nav>
+  <div class="right">
+    <span class="status"><i></i>Открыта к проектам</span>
+    <span class="clock" id="clock">Краснодар --:--</span>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <span class="hint">↖ стикеры можно двигать</span>
+  <div class="sticker photo" data-drag><img src="img/me.jpg" alt="Алина Градинар"></div>
+  <div class="sticker award" data-drag><div>Forbes Games<strong>Silver Mercury</strong>2026</div></div>
+  <div class="sticker note" data-drag>UX · UI · Web · AI</div>
+  <h1><span class="ln"><span>Алина</span></span><span class="ln"><span>Градинар</span></span></h1>
+  <div class="meta">
+    <div><b>Кто</b>UX/UI и веб-дизайнер</div>
+    <div><b>Опыт</b>Больше 4 лет в продуктах и вебе</div>
+    <div><b>Подход</b>Интерфейсы, которые решают задачи бизнеса и понятны людям</div>
+    <div><b>Связь</b><a href="https://t.me/alinagrr" target="_blank" rel="noopener">Telegram ↗</a> · <a href="mailto:alinagradinar99@gmail.com">Почта ↗</a></div>
+  </div>
+</div>
+
+<section id="works">
+  <div class="head">
+    <h2>Работы<sup id="total"></sup></h2>
+    <div class="seg" role="group" aria-label="Вид">
+      <button data-view="list" aria-pressed="true">Список</button>
+      <button data-view="grid" aria-pressed="false">Сетка</button>
+      <button data-view="desk" aria-pressed="false">Стол</button>
+    </div>
+  </div>
+  <ul class="list" id="list"></ul>
+  <div class="grid" id="grid"></div>
+  <div class="desk" id="desk">
+    <div class="top"><div class="dots"><i></i><i></i><i></i></div><b>РАБОТЫ — АЛИНА</b><span>перетаскивай · клик — открыть</span></div>
+    <div class="body">
+      <aside>
+        <b>Избранное</b>Все работы<br>Веб-сайты<br>Продукты<br>
+        <b>Теги</b>
+        <div><i style="background:#f4c542"></i>Награды</div>
+        <div><i style="background:#2f6fe0"></i>Веб</div>
+        <div><i style="background:#3ccf7a"></i>Продукт</div>
+        <div><i style="background:#ff3d7f"></i>AI</div>
+      </aside>
+      <div class="table" id="table"></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="head"><h2>Обо мне</h2></div>
+  <div class="about">
+    <div class="pic"><img src="img/me.jpg" alt="Алина Градинар" loading="lazy"></div>
+    <div class="txt">
+      <p class="lead">Я UX/UI и веб-дизайнер. Проектирую интерфейсы, которые <em>помогают решать</em> бизнес-задачи и делают пользовательский опыт понятным и удобным.</p>
+      <ul class="skills">
+        <li>Корпоративные сайты и лендинги<span>Сибгипрошахт, Aquro</span></li>
+        <li>Сложные сервисы и личные кабинеты<span>«Ямал», REUZEit</span></li>
+        <li>Спецпроекты и игровые механики<span>Forbes Games</span></li>
+        <li>AI-продукты и генерация визуалов<span>AI-интерьер</span></li>
+      </ul>
+      <div class="chips"><span>UX-исследования</span><span>Прототипирование</span><span>UI-дизайн</span><span>Дизайн-системы</span><span>Адаптив</span><span>AI-визуалы</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="head"><h2>Давай поработаем</h2></div>
+  <a class="big" href="mailto:alinagradinar99@gmail.com" style="--c:#ff3d7f"><span>Почта<small>alinagradinar99@gmail.com ↗</small></span></a>
+  <a class="big" href="https://t.me/alinagrr" target="_blank" rel="noopener" style="--c:#2f6fe0"><span>Telegram<small>@alinagrr ↗</small></span></a>
+  <a class="big" href="https://krasnodar.hh.ru/resume/0b0cc5f7ff0b1d20000039ed1f75663875664f?print=true" target="_blank" rel="noopener" style="--c:#3ccf7a"><span>Резюме<small>hh.ru ↗</small></span></a>
+</section>
+
+<footer><span>© 2026 Алина Градинар</span><a href="#top">Наверх ↑</a></footer>
+
+<div class="peek" id="peek"><img alt=""></div>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Проект">
+  <div class="glow" id="glow"></div><div class="shade"></div>
+  <div class="vtop"><span>Алина Градинар — Работы</span><button class="close" id="close" aria-label="Закрыть">×</button></div>
+  <div class="stage">
+    <div class="shot"><img id="shot" alt=""></div>
+    <div class="info" id="info"></div>
+  </div>
+</div>
+
+<script>
+const P=[
+  {t:'Forbes Games',client:'Forbes',kind:'Веб · Спецпроект',c:'#f4c542',k:'#111',img:'img/forbes.jpg',s:'img/forbes_s.jpg',file:'forbes_games.jpg',
+   d:'Игровой модуль на сайте Forbes: интеллектуальные игры для ума и души. Проект получил Silver Mercury в номинации «Лучший диджитал-проект».',url:'https://games.forbes.ru/',badge:'Silver Mercury 2026'},
+  {t:'AI-сервис для интерьера',client:'NDA',kind:'Продукт · AI',c:'#c9b8ff',k:'#111',img:'img/interior.jpg',s:'img/interior_s.jpg',file:'ai_interior_nda.jpg',
+   d:'ИИ-платформа для интерьера: по фото создаёт или улучшает пространство, от ремонта и меблировки до готовой визуализации за минуты. Проект под NDA, сейчас в работе.',badge:'В работе'},
+  {t:'Авиакомпания «Ямал»',client:'Ямал',kind:'Веб · Личный кабинет',c:'#2f6fe0',k:'#fff',img:'img/yamal.jpg',s:'img/yamal_s.jpg',file:'yamal_airlines.jpg',
+   d:'Сайт авиакомпании, личный кабинет пассажира и сценарий оформления заказа.'},
+  {t:'Сибгипрошахт',client:'sgsh.ru',kind:'Корпоративный сайт',c:'#1f6f63',k:'#fff',img:'img/sgsh.gif',s:'img/sgsh_s.jpg',file:'sibgiproshakht.gif',
+   d:'Корпоративный сайт проектного института: обогатительные фабрики, шахты и разрезы.',url:'https://sgsh.ru/'},
+  {t:'Aquro',client:'aquro.ru',kind:'Лендинг · Каталог',c:'#ff9ecf',k:'#111',img:'img/aquro.jpg',s:'img/aquro_s.jpg',file:'aquro_landing.jpg',
+   d:'Продуктовый лендинг с каталогом продукции.',url:'https://aquro.ru/'},
+  {t:'REUZEit',client:'США',kind:'Маркетплейс · B2B',c:'#3ccf7a',k:'#111',img:'img/reuzeit.jpg',s:'img/reuzeit_s.jpg',file:'reuzeit_platform.jpg',
+   d:'Калифорнийская платформа для продажи б/у лабораторного, медицинского и промышленного оборудования.',url:'https://reuzeit.com/'},
+  {t:'Генерация изображений',client:'AI',kind:'AI-визуалы',c:'#ff3d7f',k:'#fff',img:'img/gen.jpg',s:'img/gen_s.jpg',file:'ai_generation.jpg',
+   d:'Предметные изображения и визуалы, созданные с помощью нейросетей.'}
+];
+const $=s=>document.querySelector(s);
+const pad=n=>String(n).padStart(2,'0');
+$('#total').textContent='('+pad(P.length)+')';
+
+// clock
+const tick=()=>{$('#clock').textContent='Краснодар '+new Date().toLocaleTimeString('ru-RU',{timeZone:'Europe/Moscow',hour:'2-digit',minute:'2-digit'})};
+tick();setInterval(tick,30000);
+
+// list
+const list=$('#list');
+P.forEach((p,i)=>{
+  const li=document.createElement('li');li.className='reveal';
+  li.innerHTML=`<button class="row" data-i="${i}" style="--c:${p.c};--k:${p.k}"><span class="t">${p.t}</span><span class="tag">${p.client} ↗ ${p.kind}</span><span class="n">${pad(i+1)}</span></button>`;
+  list.append(li);
+});
+// grid
+const grid=$('#grid');
+P.forEach((p,i)=>{
+  const b=document.createElement('button');b.className='card';b.dataset.i=i;
+  b.innerHTML=`<div class="box" style="--c:${p.c};--k:${p.k}"><small>${p.client}<br>${p.kind}</small><h3>${p.t}</h3><img src="${p.s}" alt="" loading="lazy"></div><p>${p.d.split('.')[0]}.</p>`;
+  grid.append(b);
+});
+// desk
+const table=$('#table');
+const spots=[[6,8,-6],[34,4,4],[64,10,-3],[14,50,5],[44,42,-5],[72,52,6],[30,72,-2]];
+P.forEach((p,i)=>{
+  const f=document.createElement('div');f.className='file';f.dataset.i=i;f.dataset.drag='';
+  const [x,y,r]=spots[i];f.style.left=x+'%';f.style.top=y+'%';f.style.rotate=r+'deg';
+  f.innerHTML=`<img src="${p.s}" alt=""><span style="--c:${p.c}"><i></i>${p.file}</span>`;
+  table.append(f);
+});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+const watch=()=>document.querySelectorAll('.reveal:not(.in),.card:not(.in)').forEach((el,k)=>{el.style.transitionDelay=(k%8)*70+'ms';el.querySelector('.row')&&(el.querySelector('.row').style.transitionDelay=(k%8)*70+'ms');io.observe(el)});
+watch();
+
+// view toggle
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  const v=b.dataset.view;
+  list.style.display=v==='list'?'block':'none';
+  grid.style.display=v==='grid'?'grid':'none';
+  $('#desk').style.display=v==='desk'?'block':'none';
+  if(v==='list'){document.querySelectorAll('.reveal').forEach(el=>el.classList.remove('in'));requestAnimationFrame(watch)}
+  if(v==='grid'){document.querySelectorAll('.card').forEach(el=>el.classList.remove('in'));requestAnimationFrame(watch)}
+});
+
+// hover peek following cursor
+const peek=$('#peek'),pimg=peek.querySelector('img');
+let mx=0,my=0,px=0,py=0;
+addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){px+=(mx-px)*.16;py+=(my-py)*.16;peek.style.transform=`translate(${px+24}px,${py-100}px)`;requestAnimationFrame(loop)})();
+list.addEventListener('pointerover',e=>{const r=e.target.closest('.row');if(!r)return;pimg.src=P[r.dataset.i].s;peek.classList.add('on')});
+list.addEventListener('pointerleave',()=>peek.classList.remove('on'));
+
+// drag (stickers + files); short press on a file = open
+document.querySelectorAll('[data-drag]').forEach(el=>{
+  el.addEventListener('pointerdown',e=>{
+    e.preventDefault();el.setPointerCapture(e.pointerId);
+    const sx=e.clientX,sy=e.clientY;let moved=false;
+    const base=el.style.translate.split(' ').map(parseFloat);let bx=base[0]||0,by=base[1]||0;
+    el.style.zIndex=++z;document.querySelectorAll('.file').forEach(f=>f.classList.toggle('sel',f===el));
+    const mv=ev=>{const dx=ev.clientX-sx,dy=ev.clientY-sy;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;el.style.translate=`${bx+dx}px ${by+dy}px`};
+    const up=()=>{el.removeEventListener('pointermove',mv);el.removeEventListener('pointerup',up);if(!moved&&el.classList.contains('file'))open(+el.dataset.i)};
+    el.addEventListener('pointermove',mv);el.addEventListener('pointerup',up);
+  });
+});
+let z=10;
+
+// viewer
+const viewer=$('#viewer'),shot=$('#shot'),info=$('#info'),glow=$('#glow');
+let cur=0;
+function render(){
+  const p=P[cur],nx=P[(cur+1)%P.length];
+  glow.style.backgroundImage=`url(${p.s})`;
+  shot.classList.remove('enter');void shot.offsetWidth;shot.src=p.img;shot.alt=p.t;shot.classList.add('enter');
+  info.classList.remove('enter');void info.offsetWidth;
+  info.innerHTML=`<span class="kind">${p.client} — ${p.kind}</span><h3>${p.t}</h3>${p.badge?`<span class="badge">${p.badge}</span>`:''}<p>${p.d}</p>${p.url?`<a class="go" href="${p.url}" target="_blank" rel="noopener">Открыть сайт ↗</a>`:''}
+  <div class="nav"><button id="prev" aria-label="Предыдущий">←</button><button id="next" aria-label="Следующий">→</button><div class="next-peek" id="np" title="${nx.t}"><img src="${nx.s}" alt=""></div><span class="count">${pad(cur+1)} / ${pad(P.length)}</span></div>`;
+  info.classList.add('enter');
+  $('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);$('#np').onclick=()=>go(1);
+}
+function go(d){cur=(cur+d+P.length)%P.length;render()}
+function open(i){cur=i;viewer.classList.add('open');document.body.style.overflow='hidden';peek.classList.remove('on');render();$('#close').focus()}
+function close(){viewer.classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('click',e=>{const t=e.target.closest('.row,.card');if(t)open(+t.dataset.i)});
+$('#close').onclick=close;
+addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+let tx=0;viewer.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+viewer.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)go(d<0?1:-1)});
+</script>
+</body>
+</html>

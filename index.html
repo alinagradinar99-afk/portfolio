@@ -11,11 +11,11 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%232b59ff'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#ffffff; --soft:#f2f1ee; --ink:#111; --mute:#8b8983; --line:rgba(17,17,17,.12); --acc:#2b59ff;
-  --sans:"Inter Tight",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --sans:"Golos Text",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
   --ease:cubic-bezier(.22,.8,.2,1);
   --r:20px; --g:16px; --col:min(1120px,calc(100% - 2*var(--g)));
 }
@@ -32,8 +32,8 @@ img{display:block;max-width:100%}
 
 /* header */
 .top{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:28px;padding:18px var(--g);background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.top .logo{font-weight:600;font-size:19px;letter-spacing:-.02em}
-.top nav{margin-left:auto;display:flex;align-items:center;gap:28px;font-size:16px}
+.top .logo{font-weight:600;font-size:18px;line-height:1.4;letter-spacing:-.01em}
+.top nav{margin-left:auto;display:flex;align-items:center;gap:28px;font-size:16px;line-height:1.4}
 .top nav a{position:relative}
 .top nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
 .top nav a:hover::after{transform:scaleX(1);transform-origin:left}
@@ -43,10 +43,12 @@ img{display:block;max-width:100%}
 .intro{padding:9vh 0 0}
 .ava{width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--soft)}
 .ava img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-.here{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:22px;font-size:15px;color:var(--mute);font-variant-numeric:tabular-nums}
-.here .open{display:inline-flex;align-items:center;gap:7px;color:var(--ink)}
-.here .open i{width:7px;height:7px;border-radius:50%;background:#2ec26a}
-.hl{font-weight:600;font-size:clamp(26px,3.1vw,44px);line-height:1.1;letter-spacing:-.035em;margin-top:18px;max-width:20em}
+.here{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;margin-top:22px;font-size:15px;color:var(--mute);font-variant-numeric:tabular-nums}
+.here a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px;transition:text-decoration-color .25s,color .25s}
+.here a:hover{color:var(--acc);text-decoration-color:currentColor}
+.hl{font-weight:600;font-size:clamp(22px,2.3vw,32px);line-height:1.3;letter-spacing:-.02em;margin-top:14px;max-width:24em}
+.sub{margin-top:16px;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:var(--mute);max-width:40em}
+.sub b{font-weight:500;color:var(--ink)}
 .hl em{font-style:normal;color:var(--acc)}
 .hl .w{display:inline-block;opacity:0;transform:translateY(.4em);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .hl.in .w{opacity:1;transform:none}
@@ -61,8 +63,8 @@ img{display:block;max-width:100%}
 .about p+p{margin-top:.7em}
 .about p span{color:var(--mute)}
 
-.exp{margin-top:8vh}
-.exp h2,.ct h2{font-weight:600;font-size:clamp(26px,2.4vw,34px);letter-spacing:-.03em;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.exp{margin-top:7vh}
+.exp h2,.ct h2{font-weight:600;font-size:clamp(26px,2.4vw,34px);letter-spacing:-.02em;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .job{display:grid;grid-template-columns:1fr 1.9fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--line)}
 .job p{font-size:18px;line-height:1.5;max-width:36em}
 .job .lnk{display:inline-block;margin-top:14px;font-size:16px;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;transition:color .2s}
@@ -83,8 +85,8 @@ img{display:block;max-width:100%}
 
 /* projects */
 .wk-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:16vh;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.wk-head h2{font-weight:600;font-size:clamp(34px,4.4vw,64px);letter-spacing:-.045em;line-height:1}
-.wk-head span{color:var(--mute);font-size:clamp(34px,4.4vw,64px);letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
+.wk-head h2{font-weight:600;font-size:clamp(34px,4.4vw,64px);letter-spacing:-.025em;line-height:1}
+.wk-head span{color:var(--mute);font-size:clamp(34px,4.4vw,64px);letter-spacing:-.025em;line-height:1;font-variant-numeric:tabular-nums}
 .tabs{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--soft);margin:22px 0;max-width:100%;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tabs button{height:36px;padding:0 16px;border-radius:999px;font-size:15px;color:var(--mute);white-space:nowrap;transition:background .3s,color .3s}
@@ -104,7 +106,7 @@ img{display:block;max-width:100%}
 .shot .lbl{position:absolute;top:14px;left:14px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);font-size:13px;font-weight:500;color:var(--ink)}
 .meta{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;opacity:0;transform:translateY(14px);transition:opacity .8s .25s var(--ease),transform .8s .25s var(--ease)}
 .card.in .meta{opacity:1;transform:none}
-.meta h3{font-weight:600;font-size:clamp(20px,1.8vw,24px);letter-spacing:-.03em;line-height:1.1;display:flex;align-items:center;gap:8px}
+.meta h3{font-weight:600;font-size:clamp(20px,1.8vw,24px);letter-spacing:-.02em;line-height:1.1;display:flex;align-items:center;gap:8px}
 .meta h3 i{font-style:normal;display:inline-block;transition:transform .4s var(--ease)}
 .card:hover .meta h3 i{transform:translate(3px,-3px)}
 .meta p{margin-top:6px;color:var(--mute);font-size:15px;line-height:1.35;max-width:46ch}
@@ -135,7 +137,7 @@ footer a:hover{color:var(--ink)}
 .ctags{display:flex;flex-wrap:wrap;gap:6px}
 .ctags span{padding:7px 12px;border-radius:999px;background:var(--soft);font-size:14px}
 .ctags span.gold{background:#f1c94b}
-.cbody h2{font-weight:600;font-size:clamp(42px,7.5vw,120px);letter-spacing:-.055em;line-height:.94;margin:22px 0 0}
+.cbody h2{font-weight:600;font-size:clamp(42px,7.5vw,120px);letter-spacing:-.025em;line-height:.94;margin:22px 0 0}
 .cgrid{display:grid;grid-template-columns:1fr 2fr;gap:var(--g);margin-top:7vh;padding-top:20px;border-top:1px solid var(--line)}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:18px 12px;align-content:start}
 .facts div{font-size:15px;line-height:1.3}
@@ -150,7 +152,7 @@ footer a:hover{color:var(--ink)}
 .gallery img{width:100%}
 .next{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:12vh var(--g) 0;padding:22px 0 26px;border-top:1px solid var(--line);cursor:pointer;width:calc(100% - 2*var(--g));text-align:left}
 .next small{display:block;color:var(--mute);font-size:15px;margin-bottom:8px}
-.next b{display:inline-block;font-weight:600;font-size:clamp(34px,5.5vw,88px);letter-spacing:-.05em;line-height:.95;transition:transform .5s var(--ease)}
+.next b{display:inline-block;font-weight:600;font-size:clamp(34px,5.5vw,88px);letter-spacing:-.025em;line-height:.95;transition:transform .5s var(--ease)}
 .next:hover b{transform:translateX(12px)}
 .next img{width:min(28vw,280px);aspect-ratio:4/3;object-fit:cover;border-radius:14px}
 
@@ -175,31 +177,17 @@ footer a:hover{color:var(--ink)}
 
 <header class="top">
   <a class="logo" href="#">Алина Градинар</a>
-  <nav>
-    <a class="hide-s" href="#about">Обо мне</a>
-    <a href="#work">Проекты</a>
-    <a href="#contacts">Контакты</a>
-    <span class="sep hide-s"></span>
-    <a class="hide-s" href="https://krasnodar.hh.ru/resume/0b0cc5f7ff0b1d20000039ed1f75663875664f?print=true" target="_blank" rel="noopener">Резюме</a>
-  </nav>
+  <nav><a href="https://krasnodar.hh.ru/resume/0b0cc5f7ff0b1d20000039ed1f75663875664f?print=true" target="_blank" rel="noopener">Резюме ↗</a></nav>
 </header>
 
 <main>
 <section class="intro col" id="about">
-  <div class="ava rv"><img src="img/me-ava4.jpg" alt="Алина Градинар"></div>
+  <div class="ava rv"><img src="img/me-face.jpg" alt="Алина Градинар"></div>
+  <div class="here rv"><span id="clock">Краснодар</span><a href="mailto:alinagradinar99@gmail.com">alinagradinar99@gmail.com</a><a href="https://t.me/alinagrr" target="_blank" rel="noopener">Telegram ↗</a></div>
   <h1 class="hl" id="hl">UX/UI и веб-дизайнер. Проектирую сложные интерфейсы, сайты для <em>B2C, B2B, E&#8209;commerce, EdTech</em></h1>
-  <div class="here rv"><span id="clock">Краснодар</span><span class="open"><i></i>Открыта к новым проектам</span></div>
-
-  <div class="about">
-    <div class="k rv">Обо мне<small>4+ года в UX/UI<br>и веб-дизайне</small></div>
-    <div class="rv">
-      <p>Меня зовут Алина. Проектирую сайты и цифровые продукты: от корпоративных сайтов и лендингов до сложных сервисов с личными кабинетами, каталогами и AI-функциями.</p>
-      <p><span>Начинаю с задачи бизнеса и сценариев пользователя, затем собираю структуру и прототип и довожу интерфейс до аккуратного визуала и адаптива.</span></p>
-    </div>
-  </div>
+  <p class="sub rv"><b>4+ года опыта.</b> Проектирую сайты и цифровые продукты: от корпоративных сайтов и лендингов до сложных сервисов с личными кабинетами, каталогами и AI-функциями.</p>
 
   <div class="exp">
-    <h2 class="rv">Опыт</h2>
     <div class="job rv">
       <div class="k">Forbes Games<small>Спецпроект для Forbes<br>Silver Mercury, 2026</small></div>
       <div><p>Спроектировала игровой раздел на сайте Forbes: квизы на эрудицию, логику и стратегию для десктопа и мобайла. Проект получил Silver Mercury в номинации «Лучший диджитал-проект».</p><button class="lnk" data-open="forbes">Смотреть кейс</button></div>
@@ -222,25 +210,10 @@ footer a:hover{color:var(--ink)}
     </div>
   </div>
 
-  <div class="ct" id="contacts">
-    <h2 class="rv">Контакты</h2>
-    <div class="ctrow rv">
-      <div class="k">Напишите мне<small>Почта, Telegram или резюме на hh.ru</small></div>
-      <div>
-        <a class="mail" href="mailto:alinagradinar99@gmail.com">alinagradinar99@gmail.com</a>
-        <div class="btns">
-          <a class="pill dark" href="https://t.me/alinagrr" target="_blank" rel="noopener">Telegram ↗</a>
-          <a class="pill" href="https://krasnodar.hh.ru/resume/0b0cc5f7ff0b1d20000039ed1f75663875664f?print=true" target="_blank" rel="noopener">Резюме ↗</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </section>
 
 <section class="works" id="work">
   <div class="col">
-  <div class="wk-head"><h2>Проекты</h2><span id="wkc"></span></div>
   <div class="tabs" role="tablist" aria-label="Фильтр проектов">
     <button role="tab" aria-selected="true" data-f="all">Все</button>
     <button role="tab" aria-selected="false" data-f="site">Сайты</button>
@@ -356,7 +329,6 @@ document.querySelectorAll('.rv,.photo').forEach(el=>io.observe(el));
 const grid=$('#grid');
 const src=(p,wd)=>wd&&innerWidth>900?p.coverW:p.cover;
 addEventListener('resize',()=>grid.querySelectorAll('.card').forEach(c=>{c.querySelector('.shot img').src=src(P[c.dataset.i],c.classList.contains('wide'))}));
-$('#wkc').textContent=pad(N);
 P.forEach((p,i)=>{
   const b=document.createElement('button');b.className='card'+(p.wide?' wide':'');b.dataset.i=i;b.dataset.f=p.f;
   b.innerHTML=`<div class="shot" style="--c:${p.c}"><img src="${src(p,p.wide)}" alt="${p.t}" loading="lazy">${p.label?`<span class="lbl">${p.label}</span>`:''}</div>
@@ -370,7 +342,7 @@ document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
   grid.querySelectorAll('.card').forEach(c=>{const on=f==='all'||c.dataset.f===f;c.hidden=!on;if(on)n++;
     const wd=f==='all'&&!!P[c.dataset.i].wide;c.classList.toggle('wide',wd);c.querySelector('.shot img').src=src(P[c.dataset.i],wd);
     if(on){c.classList.remove('in');requestAnimationFrame(()=>requestAnimationFrame(()=>c.classList.add('in')))}});
-  $('#wkc').textContent=pad(n);
+  
 });
 const cur=$('#cursor');let cx=0,cy=0,tx=0,ty=0;
 addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});

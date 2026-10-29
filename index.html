@@ -4,404 +4,393 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Алина Градинар — UX/UI дизайнер</title>
-<meta name="description" content="UX/UI и веб-дизайнер с опытом более 4 лет. Портфолио: Forbes Games, Авиакомпания «Ямал», REUZEit и другие проекты.">
+<meta name="description" content="UX/UI и веб-дизайнер с опытом более 4 лет. Forbes Games, ГК «Ультра», BuildEng, авиакомпания «Ямал», REUZEit и другие проекты.">
 <meta property="og:title" content="Алина Градинар — UX/UI дизайнер">
-<meta property="og:description" content="Проектирую интерфейсы, которые решают бизнес-задачи и делают опыт понятным.">
-<meta property="og:image" content="img/forbes.jpg">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23ff3d7f'/></svg>">
+<meta property="og:description" content="Проектирую интерфейсы, которые решают задачи бизнеса и понятны людям.">
+<meta property="og:image" content="img/forbes-laptop.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%230e0e0e'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f1f0ec; --ink:#111; --mute:#77756f; --line:#111; --soft:#e4e2dc;
-  --pink:#ff3d7f;
+  --bg:#efeeea; --card:#e3e1db; --ink:#0e0e0e; --mute:#86837c; --line:rgba(14,14,14,.14); --pill:#fff;
   --sans:"Inter Tight",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
-  --ease:cubic-bezier(.2,.8,.2,1);
+  --ease:cubic-bezier(.22,.8,.2,1);
+  --r:22px; --g:16px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 img{display:block;max-width:100%}
-::selection{background:var(--pink);color:#fff}
+::selection{background:var(--ink);color:var(--bg)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{padding:0 var(--g)}
 
-/* ── menu bar ── */
-.bar{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;gap:18px;height:40px;padding:0 16px;
-  font-size:13px;font-weight:500;background:rgba(241,240,236,.72);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(0,0,0,.08)}
-.bar .logo{display:flex;align-items:center;gap:8px;font-weight:600}
-.bar .logo i{width:12px;height:12px;border-radius:50%;background:var(--pink);display:block}
-.bar nav{display:flex;gap:16px}
-.bar nav a{opacity:.7;transition:opacity .2s}
-.bar nav a:hover{opacity:1}
-.bar .right{margin-left:auto;display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px}
-.status{display:flex;align-items:center;gap:7px}
-.status i{width:7px;height:7px;border-radius:50%;background:#27c46b;box-shadow:0 0 0 0 rgba(39,196,107,.6);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 7px rgba(39,196,107,0)}100%{box-shadow:0 0 0 0 rgba(39,196,107,0)}}
+/* header */
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;padding:12px var(--g);background:rgba(239,238,234,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.me{display:flex;flex-direction:column;line-height:1.2}
+.me b{font-weight:500}
+.me span{font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
+.top nav{margin-left:auto;display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border-radius:999px;background:var(--pill);font-size:15px;transition:background .25s,color .25s,transform .25s var(--ease)}
+.pill:hover{background:var(--ink);color:var(--bg)}
+.pill.dark{background:var(--ink);color:var(--bg)}
+.pill.dark:hover{transform:translateY(-1px)}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:#2ec26a}
 
-/* ── hero ── */
-.hero{position:relative;min-height:100svh;padding:110px 16px 32px;display:flex;flex-direction:column;justify-content:flex-end}
-.hero h1{font-weight:500;font-size:clamp(56px,13.2vw,230px);line-height:.86;letter-spacing:-.055em}
-.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
-.hero h1 .ln span{display:inline-block;transform:translateY(105%);animation:up 1.1s var(--ease) forwards}
-.hero h1 .ln:nth-child(2) span{animation-delay:.12s}
-@keyframes up{to{transform:none}}
-.hero .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-size:15px;line-height:1.35;opacity:0;animation:fade .8s .6s forwards}
-.hero .meta b{display:block;font-family:var(--mono);font-weight:400;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:6px}
-@keyframes fade{to{opacity:1}}
+/* intro */
+.intro{padding:12vh var(--g) 0}
+.lead{font-weight:500;font-size:clamp(34px,5.4vw,84px);line-height:1.04;letter-spacing:-.045em;max-width:16.5em}
+.lead .w{display:inline-block;opacity:0;transform:translateY(.35em);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.lead.in .w{opacity:1;transform:none}
+.lead .face{display:inline-block;width:1.5em;height:.92em;border-radius:999px;overflow:hidden;vertical-align:-.1em;margin:0 .08em;background:var(--card)}
+.lead .face img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.lead .grey{color:var(--mute)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:9vh;border-top:1px solid var(--line)}
+.stat{padding:18px 18px 4px 0;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:150px}
+.stat+.stat{padding-left:18px}
+.stat:last-child{border-right:0}
+.stat b{font-weight:400;font-size:clamp(48px,6vw,96px);letter-spacing:-.05em;line-height:.9;font-variant-numeric:tabular-nums}
+.stat b small{font-size:.45em;letter-spacing:-.02em;vertical-align:top;margin-left:2px}
+.stat span{font-size:15px;color:var(--mute);line-height:1.3}
 
-.sticker{position:absolute;z-index:5;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:box-shadow .2s}
-.sticker:active{cursor:grabbing}
-.sticker.photo{top:16vh;right:7vw;width:clamp(130px,15vw,230px);transform:rotate(6deg);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.18);border:5px solid #fff;
-  opacity:0;animation:pop .9s .5s var(--ease) forwards}
-.sticker.photo img{pointer-events:none;aspect-ratio:4/5;object-fit:cover;width:100%}
-.sticker.award{top:28vh;right:calc(7vw + clamp(110px,13vw,200px));width:132px;height:132px;border-radius:50%;background:#f4c542;display:grid;place-items:center;text-align:center;
-  font-family:var(--mono);font-size:11px;line-height:1.25;text-transform:uppercase;letter-spacing:.04em;transform:rotate(-12deg);box-shadow:0 12px 30px rgba(0,0,0,.14);opacity:0;animation:pop .9s .75s var(--ease) forwards}
-.sticker.award strong{display:block;font-family:var(--sans);font-size:20px;letter-spacing:-.02em;text-transform:none;font-weight:600}
-.sticker.note{top:58px;left:42vw;padding:10px 14px;background:#c9b8ff;border-radius:999px;font-family:var(--mono);font-size:12px;transform:rotate(-4deg);opacity:0;animation:pop .9s 1s var(--ease) forwards}
-@keyframes pop{from{opacity:0;scale:.6}to{opacity:1;scale:1}}
-.hint{position:absolute;top:60px;right:16px;font-family:var(--mono);font-size:11px;color:var(--mute)}
+/* projects */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:16vh 0 22px}
+.sec-head h2{font-weight:500;font-size:clamp(32px,4vw,56px);letter-spacing:-.04em;line-height:1}
+.sec-head .cnt{font-size:clamp(32px,4vw,56px);letter-spacing:-.04em;line-height:1;color:var(--mute);font-variant-numeric:tabular-nums}
+.tabs{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--card);margin-bottom:22px;max-width:100%;overflow-x:auto}
+.tabs button{height:36px;padding:0 16px;border-radius:999px;font-size:15px;color:var(--mute);white-space:nowrap;transition:background .3s,color .3s}
+.tabs button[aria-selected=true]{background:var(--pill);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.tabs button:hover{color:var(--ink)}
 
-/* ── section head ── */
-section{padding:0 16px}
-.head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:90px 16px 14px;margin:0 -16px;border-bottom:1px solid var(--line)}
-.head h2{font-weight:500;font-size:clamp(34px,5vw,64px);letter-spacing:-.04em;line-height:1}
-.head h2 sup{font-family:var(--mono);font-size:13px;font-weight:400;letter-spacing:0;vertical-align:top;margin-left:6px}
-.seg{display:flex;border:1px solid var(--ink);border-radius:999px;padding:3px;font-family:var(--mono);font-size:12px;text-transform:uppercase}
-.seg button{padding:6px 14px;border-radius:999px;transition:background .25s,color .25s}
-.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:56px var(--g)}
+.card{display:flex;flex-direction:column;gap:14px;cursor:pointer;text-align:left;width:100%}
+.card.wide{grid-column:1/-1}
+.card[hidden]{display:none}
+.shot{position:relative;border-radius:var(--r);overflow:hidden;background:var(--c,var(--card));aspect-ratio:4/3;
+  clip-path:inset(7% 7% 7% 7% round var(--r));transition:clip-path 1.1s var(--ease)}
+.card.wide .shot{aspect-ratio:16/8}
+.shot img{width:100%;height:100%;object-fit:cover;scale:1.14;transition:scale 1.4s var(--ease)}
+.card.in .shot{clip-path:inset(0 0 0 0 round var(--r))}
+.card.in .shot img{scale:1}
+.card.in:hover .shot img{scale:1.035;transition-duration:.9s}
+.shot.frame img{position:absolute;left:7%;top:50%;width:86%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;translate:0 -50%;border-radius:10px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.card.wide .shot.frame img{left:19%;width:62%}
+.shot .lbl{position:absolute;top:14px;left:14px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);font-size:13px;font-weight:500;color:var(--ink)}
+.meta{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;opacity:0;transform:translateY(14px);transition:opacity .8s .25s var(--ease),transform .8s .25s var(--ease)}
+.card.in .meta{opacity:1;transform:none}
+.meta h3{font-weight:500;font-size:clamp(20px,1.9vw,26px);letter-spacing:-.03em;line-height:1.1;display:flex;align-items:center;gap:8px}
+.meta h3 i{font-style:normal;display:inline-block;transition:transform .4s var(--ease)}
+.card:hover .meta h3 i{transform:translate(3px,-3px)}
+.meta p{margin-top:6px;color:var(--mute);font-size:15px;line-height:1.35;max-width:46ch}
+.tags{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;flex-shrink:0;max-width:50%}
+.tags span{padding:7px 12px;border-radius:999px;background:var(--pill);font-size:14px;white-space:nowrap}
 
-/* ── list view ── */
-.list{list-style:none}
-.list li{border-bottom:1px solid var(--line);overflow:hidden;margin:0 -16px;padding:0 16px}
-.row{position:relative;display:flex;align-items:baseline;gap:10px;padding:6px 0 4px;cursor:pointer;width:100%;text-align:left}
-.row::before{content:"";position:absolute;inset:0 -16px;background:var(--c);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease)}
-.row:hover::before,.row:focus-visible::before{transform:scaleY(1)}
-.row:hover,.row:focus-visible{color:var(--k)}
-.row>*{position:relative}
-.row .t{font-weight:500;font-size:clamp(30px,6.4vw,104px);line-height:1.02;letter-spacing:-.045em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;transition:transform .45s var(--ease)}
-.row:hover .t{transform:translateX(14px)}
-.row .tag{font-family:var(--mono);font-size:11px;align-self:flex-start;margin-top:.9em;white-space:nowrap;opacity:.8}
-.row .n{margin-left:auto;font-family:var(--mono);font-size:clamp(14px,1.6vw,22px);align-self:center}
-.reveal .row{transform:translateY(105%);transition:transform .9s var(--ease)}
-.reveal.in .row{transform:none}
-:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.cursor{position:fixed;left:0;top:0;z-index:25;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:14px;font-weight:500;
+  pointer-events:none;scale:0;transition:scale .35s var(--ease)}
+.cursor.on{scale:1}
 
-.peek{position:fixed;left:0;top:0;z-index:40;width:300px;aspect-ratio:3/2;border-radius:12px;overflow:hidden;pointer-events:none;opacity:0;scale:.7;rotate:-4deg;
-  transition:opacity .25s,scale .35s var(--ease),rotate .35s var(--ease);box-shadow:0 20px 50px rgba(0,0,0,.25)}
-.peek.on{opacity:1;scale:1;rotate:3deg}
-.peek img{width:100%;height:100%;object-fit:cover}
+/* about */
+.about{display:grid;grid-template-columns:1fr 2fr;gap:var(--g);border-top:1px solid var(--line);padding-top:22px;margin-top:16vh}
+.about .k{font-size:15px;color:var(--mute)}
+.about .txt{font-size:clamp(22px,2.3vw,34px);line-height:1.2;letter-spacing:-.03em;font-weight:500;max-width:26em}
+.about .txt span{color:var(--mute)}
+.svc{grid-column:2;list-style:none;margin-top:36px;border-top:1px solid var(--line)}
+.svc li{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font-size:19px;letter-spacing:-.01em}
+.svc li em{font-style:normal;color:var(--mute);font-size:14px;font-variant-numeric:tabular-nums}
+.svc li span{color:var(--mute);font-size:14px;text-align:right}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
 
-/* ── grid view ── */
-.grid{display:none;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding-top:20px}
-.card{display:flex;flex-direction:column;gap:10px;text-align:left;cursor:pointer;opacity:0;transform:translateY(40px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.card.in{opacity:1;transform:none}
-.card .box{position:relative;aspect-ratio:4/5;border-radius:18px;background:var(--c);color:var(--k);padding:16px;overflow:hidden;display:flex;flex-direction:column}
-.card .box small{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;line-height:1.3;opacity:.8}
-.card .box h3{font-weight:500;font-size:clamp(26px,2.6vw,36px);letter-spacing:-.035em;line-height:1;margin-top:10px}
-.card .box img{position:absolute;left:12%;right:-10%;bottom:-6%;width:98%;aspect-ratio:3/2;object-fit:cover;border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.25);transform:rotate(-4deg);transition:transform .6s var(--ease)}
-.card:hover .box img{transform:rotate(0) translateY(-10px) scale(1.04)}
-.card p{font-size:14px;line-height:1.35;color:var(--mute);max-width:32ch}
+/* contact */
+.contact{margin:16vh var(--g) var(--g);padding:clamp(28px,5vw,64px);border-radius:var(--r);background:var(--ink);color:var(--bg);overflow:hidden;position:relative}
+.contact h2{font-weight:500;font-size:clamp(44px,8.5vw,148px);letter-spacing:-.055em;line-height:.92}
+.contact h2 span{color:#6b6963}
+.contact .row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-top:clamp(40px,8vw,110px)}
+.mail{font-size:clamp(22px,3vw,44px);letter-spacing:-.03em;border-bottom:1px solid #4a4843;padding-bottom:6px;transition:border-color .3s;word-break:break-all}
+.mail:hover{border-color:var(--bg)}
+.contact .pills{display:flex;gap:8px;flex-wrap:wrap}
+.contact .pill{background:#232320;color:var(--bg)}
+.contact .pill:hover{background:var(--bg);color:var(--ink)}
+footer{display:flex;justify-content:space-between;gap:12px;padding:6px var(--g) 22px;font-size:13px;color:var(--mute)}
 
-/* ── desk view ── */
-.desk{display:none;margin-top:20px;border-radius:14px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.12);overflow:hidden;border:1px solid rgba(0,0,0,.08)}
-.desk .top{display:flex;align-items:center;gap:14px;height:46px;padding:0 16px;border-bottom:1px solid var(--soft)}
-.dots{display:flex;gap:7px}.dots i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
-.desk .top b{font-weight:600;font-size:14px;letter-spacing:.02em}
-.desk .top span{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--mute)}
-.desk .body{display:grid;grid-template-columns:180px 1fr}
-.desk aside{background:#f3f2f0;padding:16px 14px;font-size:13px;line-height:2}
-.desk aside b{display:block;font-size:11px;color:var(--mute);font-weight:500;margin-top:8px}
-.desk aside i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:-1px}
-.table{position:relative;height:min(68vh,620px);overflow:hidden}
-.file{position:absolute;width:clamp(110px,13vw,170px);text-align:center;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
-.file:active{cursor:grabbing}
-.file img{width:100%;aspect-ratio:4/3;object-fit:cover;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.18);pointer-events:none;transition:transform .3s var(--ease)}
-.file:hover img{transform:scale(1.05) rotate(-2deg)}
-.file span{display:inline-block;margin-top:6px;font-size:12px;padding:1px 6px;border-radius:4px}
-.file span i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--c)}
-.file.sel span{background:#2f6fe0;color:#fff}
-
-/* ── about ── */
-.about{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding-top:24px}
-.about .pic{border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-height:640px;background:#111}
-.about .pic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.about .pic:hover img{transform:scale(1.04)}
-.about .txt{display:flex;flex-direction:column;gap:28px}
-.about .lead{font-size:clamp(24px,2.8vw,42px);line-height:1.12;letter-spacing:-.03em;font-weight:500}
-.about .lead em{font-style:normal;background:var(--pink);color:#fff;padding:0 .18em;border-radius:.2em}
-.skills{list-style:none;border-top:1px solid var(--line)}
-.skills li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}
-.skills li span{font-family:var(--mono);font-size:12px;color:var(--mute)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips span{padding:7px 13px;border:1px solid var(--ink);border-radius:999px;font-size:13px}
-
-/* ── contact ── */
-.contact{padding-bottom:20px}
-.big{display:block;position:relative;font-weight:500;font-size:clamp(34px,8.6vw,150px);letter-spacing:-.05em;line-height:1.05;padding:10px 16px;margin:0 -16px;border-bottom:1px solid var(--line);overflow:hidden;word-break:break-all}
-.big::before{content:"";position:absolute;inset:0;background:var(--c,var(--pink));transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease)}
-.big:hover::before{transform:scaleY(1)}
-.big:hover{color:#fff}
-.big>*{position:relative}
-.big small{font-family:var(--mono);font-size:12px;letter-spacing:0;vertical-align:top;margin-left:8px}
-footer{display:flex;justify-content:space-between;gap:12px;padding:40px 16px 20px;font-family:var(--mono);font-size:11px;color:var(--mute);text-transform:uppercase}
-
-/* ── project viewer ── */
-.viewer{position:fixed;inset:0;z-index:100;display:none;color:#fff;background:#111;overflow:hidden}
-.viewer.open{display:block}
-.viewer .glow{position:absolute;inset:-15%;background-size:cover;background-position:center;filter:blur(70px) saturate(1.5) brightness(.65);transform:scale(1.1);transition:opacity .6s}
-.viewer .shade{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,.55))}
-.vtop{position:absolute;inset:0 0 auto;display:flex;align-items:center;gap:14px;height:56px;padding:0 16px;z-index:3;font-family:var(--mono);font-size:12px;text-transform:uppercase}
-.vtop .close{margin-left:auto;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);font-size:20px;line-height:1;text-transform:none;transition:background .2s}
-.vtop .close:hover{background:rgba(255,255,255,.28)}
-.stage{position:absolute;inset:56px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;padding:20px 16px 24px;align-items:center}
-.shot{position:relative;height:100%;display:grid;place-items:center;min-height:0}
-.shot img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 30px 90px rgba(0,0,0,.5);object-fit:contain}
-.shot img.enter{animation:zoomIn .9s var(--ease) both}
-@keyframes zoomIn{from{opacity:0;transform:scale(.72) translateX(14%)}to{opacity:1;transform:none}}
-.info{align-self:end;display:flex;flex-direction:column;gap:16px;padding-bottom:8px}
-.info .kind{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
-.info h3{font-weight:500;font-size:clamp(34px,3.6vw,54px);letter-spacing:-.04em;line-height:.98}
-.info p{font-size:16px;line-height:1.45;opacity:.88}
-.info .badge{align-self:flex-start;padding:6px 12px;border-radius:999px;background:#f4c542;color:#111;font-family:var(--mono);font-size:11px;text-transform:uppercase}
-.info .go{align-self:flex-start;padding:12px 20px;border-radius:999px;background:#fff;color:#111;font-weight:500;font-size:15px;transition:transform .3s var(--ease)}
-.info .go:hover{transform:translateX(6px)}
-.info .nav{display:flex;align-items:center;gap:8px;margin-top:12px}
-.info .nav button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.4);font-size:18px;transition:background .2s}
-.info .nav button:hover{background:rgba(255,255,255,.15)}
-.info .nav .next-peek{margin-left:10px;width:64px;aspect-ratio:3/2;border-radius:6px;overflow:hidden;opacity:.55;cursor:pointer;transition:opacity .2s}
-.info .nav .next-peek:hover{opacity:1}
-.info .nav .next-peek img{width:100%;height:100%;object-fit:cover}
-.info .count{font-family:var(--mono);font-size:12px;margin-left:auto;opacity:.75}
-.info>*{opacity:0;transform:translateY(16px)}
-.info.enter>*{animation:rise .7s var(--ease) forwards}
-.info.enter>*:nth-child(2){animation-delay:.06s}.info.enter>*:nth-child(3){animation-delay:.12s}.info.enter>*:nth-child(4){animation-delay:.18s}.info.enter>*:nth-child(5){animation-delay:.24s}.info.enter>*:nth-child(6){animation-delay:.3s}
+/* case sheet */
+.case{position:fixed;inset:0;z-index:60;visibility:hidden;transition:visibility 0s .75s}
+.case.open{visibility:visible;transition:none}
+.case .veil{position:absolute;inset:0;background:rgba(14,14,14,.4);opacity:0;transition:opacity .5s}
+.case.open .veil{opacity:1}
+.sheet{position:absolute;inset:12px 0 0;border-radius:var(--r) var(--r) 0 0;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;transform:translateY(102%);transition:transform .75s var(--ease)}
+.case.open .sheet{transform:none}
+.sbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:8px;padding:12px var(--g);background:rgba(239,238,234,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.sbar .n{margin-left:auto;color:var(--mute);font-size:14px;font-variant-numeric:tabular-nums;margin-right:6px}
+.cbody{padding:5vh var(--g) 0}
+.cbody>*{opacity:0;transform:translateY(20px)}
+.cbody.in>*{animation:rise .8s var(--ease) forwards}
+.cbody.in>*:nth-child(2){animation-delay:.07s}.cbody.in>*:nth-child(3){animation-delay:.14s}.cbody.in>*:nth-child(n+4){animation-delay:.21s}
 @keyframes rise{to{opacity:1;transform:none}}
+.ctags{display:flex;flex-wrap:wrap;gap:6px}
+.ctags span{padding:7px 12px;border-radius:999px;background:var(--pill);font-size:14px}
+.ctags span.hl{background:#f1c94b}
+.cbody h2{font-weight:500;font-size:clamp(44px,8vw,132px);letter-spacing:-.055em;line-height:.92;margin:22px 0 0}
+.cgrid{display:grid;grid-template-columns:1fr 2fr;gap:var(--g);margin-top:7vh;padding-top:20px;border-top:1px solid var(--line)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:18px 12px;align-content:start}
+.facts div{font-size:15px;line-height:1.3}
+.facts small{display:block;color:var(--mute);font-size:13px;margin-bottom:4px}
+.ctext{font-size:clamp(19px,1.8vw,26px);line-height:1.3;letter-spacing:-.02em;max-width:34em}
+.ctext p+p{margin-top:.8em}
+.ctext .go{margin-top:28px}
+.gallery{display:flex;flex-direction:column;gap:var(--g);margin-top:7vh}
+.gallery figure{border-radius:var(--r);overflow:hidden;background:var(--c,var(--card))}
+.gallery figure.duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--g);background:none;border-radius:0;overflow:visible}
+.gallery figure.duo img{border-radius:var(--r);width:100%;height:100%;object-fit:cover}
+.gallery img{width:100%}
+.next{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:12vh var(--g) 0;padding:22px 0 26px;border-top:1px solid var(--line);cursor:pointer;width:calc(100% - 2*var(--g));text-align:left}
+.next small{display:block;color:var(--mute);font-size:15px;margin-bottom:8px}
+.next b{display:inline-block;font-weight:500;font-size:clamp(36px,6vw,96px);letter-spacing:-.05em;line-height:.95;transition:transform .5s var(--ease)}
+.next:hover b{transform:translateX(12px)}
+.next img{width:min(28vw,280px);aspect-ratio:4/3;object-fit:cover;border-radius:14px}
 
-/* ── responsive ── */
-@media (max-width:860px){
-  .bar nav{display:none}
-  .hero .meta{grid-template-columns:1fr 1fr}
-  .sticker.photo{top:96px;right:16px}
-  .sticker.award{top:auto;bottom:58vh;right:auto;left:16px;width:108px;height:108px;font-size:10px}
-  .sticker.award strong{font-size:16px}
-  .sticker.note{display:none}
-  .hint{display:none}
-  .about{grid-template-columns:1fr}
-  .desk .body{grid-template-columns:1fr}
-  .desk aside{display:none}
-  .stage{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto;gap:18px;overflow:auto}
-  .info{align-self:start}
+@media (max-width:900px){
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(3){padding-left:0;border-top:1px solid var(--line)}
+  .stat:nth-child(4){border-top:1px solid var(--line)}
+  .about,.cgrid{grid-template-columns:1fr}
+  .svc{grid-column:1}
+  .grid{grid-template-columns:1fr;gap:44px}
+  .card .shot,.card.wide .shot{aspect-ratio:4/3}
 }
-@media (max-width:520px){
-  .bar .right .clock{display:none}
-  .head{flex-direction:column;align-items:flex-start}
-  .row .tag{display:none}
-  .seg button{padding:6px 11px}
+@media (max-width:620px){
+  .top nav .hide-s{display:none}
+  .meta{flex-direction:column;gap:10px}
+  .tags{justify-content:flex-start;max-width:none}
+  .svc li{grid-template-columns:40px 1fr}
+  .svc li span{display:none}
+  .gallery figure.duo{grid-template-columns:1fr}
+  .next img{display:none}
+  .stat{min-height:120px}
 }
-@media (hover:none){.peek{display:none}}
-@media (prefers-reduced-motion:reduce){*,*::before{animation-duration:.01s!important;transition-duration:.01s!important}}
+@media (hover:none){.cursor{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important;animation-duration:.01s!important}}
 </style>
 </head>
 <body>
 
-<header class="bar">
-  <a class="logo" href="#top"><i></i>Алина Градинар</a>
-  <nav><a href="#works">Работы</a><a href="#about">Обо мне</a><a href="#contact">Контакты</a></nav>
-  <div class="right">
-    <span class="status"><i></i>Открыта к проектам</span>
-    <span class="clock" id="clock">Краснодар --:--</span>
-  </div>
+<header class="top">
+  <a class="me" href="#"><b>Алина Градинар</b><span id="clock">UX/UI дизайнер · Краснодар</span></a>
+  <nav>
+    <a class="pill hide-s" href="#work">Работы</a>
+    <a class="pill hide-s" href="#about">Обо мне</a>
+    <a class="pill dark" href="#contact"><i class="dot"></i>Связаться</a>
+  </nav>
 </header>
 
-<div class="hero" id="top">
-  <span class="hint">↖ стикеры можно двигать</span>
-  <div class="sticker photo" data-drag><img src="img/me.jpg" alt="Алина Градинар"></div>
-  <div class="sticker award" data-drag><div>Forbes Games<strong>Silver Mercury</strong>2026</div></div>
-  <div class="sticker note" data-drag>UX · UI · Web · AI</div>
-  <h1><span class="ln"><span>Алина</span></span><span class="ln"><span>Градинар</span></span></h1>
-  <div class="meta">
-    <div><b>Кто</b>UX/UI и веб-дизайнер</div>
-    <div><b>Опыт</b>Больше 4 лет в продуктах и вебе</div>
-    <div><b>Подход</b>Интерфейсы, которые решают задачи бизнеса и понятны людям</div>
-    <div><b>Связь</b><a href="https://t.me/alinagrr" target="_blank" rel="noopener">Telegram ↗</a> · <a href="mailto:alinagradinar99@gmail.com">Почта ↗</a></div>
+<main>
+<section class="intro">
+  <h1 class="lead" id="lead">Алина Градинар <span class="face"><img src="img/me.jpg" alt=""></span> — UX/UI и веб-дизайнер. <span class="grey">Проектирую интерфейсы, которые решают задачи бизнеса и понятны людям.</span></h1>
+  <div class="stats">
+    <div class="stat rv"><b data-count="4">0<small>+</small></b><span>лет в UX/UI<br>и веб-дизайне</span></div>
+    <div class="stat rv"><b data-count="9">0</b><span>проектов<br>в портфолио</span></div>
+    <div class="stat rv"><b data-count="1">0</b><span>награда Silver Mercury<br>за Forbes Games</span></div>
+    <div class="stat rv"><b data-count="3">0</b><span>направления: сайты,<br>продукты, AI</span></div>
   </div>
-</div>
+</section>
 
-<section id="works">
-  <div class="head">
-    <h2>Работы<sup id="total"></sup></h2>
-    <div class="seg" role="group" aria-label="Вид">
-      <button data-view="list" aria-pressed="true">Список</button>
-      <button data-view="grid" aria-pressed="false">Сетка</button>
-      <button data-view="desk" aria-pressed="false">Стол</button>
-    </div>
+<section class="wrap" id="work">
+  <div class="sec-head"><h2>Избранные проекты</h2><span class="cnt" id="cnt">09</span></div>
+  <div class="tabs" role="tablist" aria-label="Фильтр проектов">
+    <button role="tab" aria-selected="true" data-f="all">Все</button>
+    <button role="tab" aria-selected="false" data-f="site">Сайты</button>
+    <button role="tab" aria-selected="false" data-f="product">Продукты</button>
+    <button role="tab" aria-selected="false" data-f="concept">Концепты</button>
   </div>
-  <ul class="list" id="list"></ul>
   <div class="grid" id="grid"></div>
-  <div class="desk" id="desk">
-    <div class="top"><div class="dots"><i></i><i></i><i></i></div><b>РАБОТЫ — АЛИНА</b><span>перетаскивай · клик — открыть</span></div>
-    <div class="body">
-      <aside>
-        <b>Избранное</b>Все работы<br>Веб-сайты<br>Продукты<br>
-        <b>Теги</b>
-        <div><i style="background:#f4c542"></i>Награды</div>
-        <div><i style="background:#2f6fe0"></i>Веб</div>
-        <div><i style="background:#3ccf7a"></i>Продукт</div>
-        <div><i style="background:#ff3d7f"></i>AI</div>
-      </aside>
-      <div class="table" id="table"></div>
-    </div>
-  </div>
 </section>
 
-<section id="about">
-  <div class="head"><h2>Обо мне</h2></div>
+<section class="wrap" id="about">
   <div class="about">
-    <div class="pic"><img src="img/me.jpg" alt="Алина Градинар" loading="lazy"></div>
-    <div class="txt">
-      <p class="lead">Я UX/UI и веб-дизайнер. Проектирую интерфейсы, которые <em>помогают решать</em> бизнес-задачи и делают пользовательский опыт понятным и удобным.</p>
-      <ul class="skills">
-        <li>Корпоративные сайты и лендинги<span>Сибгипрошахт, Aquro</span></li>
-        <li>Сложные сервисы и личные кабинеты<span>«Ямал», REUZEit</span></li>
-        <li>Спецпроекты и игровые механики<span>Forbes Games</span></li>
-        <li>AI-продукты и генерация визуалов<span>AI-интерьер</span></li>
-      </ul>
-      <div class="chips"><span>UX-исследования</span><span>Прототипирование</span><span>UI-дизайн</span><span>Дизайн-системы</span><span>Адаптив</span><span>AI-визуалы</span></div>
+    <div class="k rv">Обо мне</div>
+    <p class="txt rv">Больше четырёх лет проектирую сайты и цифровые продукты: от корпоративных сайтов и лендингов до сложных сервисов с личными кабинетами. <span>Начинаю с задачи бизнеса и сценариев пользователя, а потом довожу интерфейс до аккуратного визуала и адаптива.</span></p>
+    <ul class="svc rv">
+      <li><em>01</em>Корпоративные сайты и лендинги<span>Сибгипрошахт, Aquro</span></li>
+      <li><em>02</em>Сервисы и личные кабинеты<span>«Ямал», REUZEit</span></li>
+      <li><em>03</em>Спецпроекты и игровые механики<span>Forbes Games</span></li>
+      <li><em>04</em>Каталоги и B2B e-commerce<span>Ультра, BuildEng</span></li>
+      <li><em>05</em>AI-продукты и генерация визуалов<span>AI-интерьер</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<section class="contact" id="contact">
+  <h2>Есть задача? <span>Давайте обсудим</span></h2>
+  <div class="row">
+    <a class="mail" href="mailto:alinagradinar99@gmail.com">alinagradinar99@gmail.com</a>
+    <div class="pills">
+      <a class="pill" href="https://t.me/alinagrr" target="_blank" rel="noopener">Telegram ↗</a>
+      <a class="pill" href="https://krasnodar.hh.ru/resume/0b0cc5f7ff0b1d20000039ed1f75663875664f?print=true" target="_blank" rel="noopener">Резюме ↗</a>
     </div>
   </div>
 </section>
+<footer><span>© 2026 Алина Градинар</span><a href="#">Наверх ↑</a></footer>
 
-<section id="contact" class="contact">
-  <div class="head"><h2>Давай поработаем</h2></div>
-  <a class="big" href="mailto:alinagradinar99@gmail.com" style="--c:#ff3d7f"><span>Почта<small>alinagradinar99@gmail.com ↗</small></span></a>
-  <a class="big" href="https://t.me/alinagrr" target="_blank" rel="noopener" style="--c:#2f6fe0"><span>Telegram<small>@alinagrr ↗</small></span></a>
-  <a class="big" href="https://krasnodar.hh.ru/resume/0b0cc5f7ff0b1d20000039ed1f75663875664f?print=true" target="_blank" rel="noopener" style="--c:#3ccf7a"><span>Резюме<small>hh.ru ↗</small></span></a>
-</section>
+<div class="cursor" id="cursor">Смотреть</div>
 
-<footer><span>© 2026 Алина Градинар</span><a href="#top">Наверх ↑</a></footer>
-
-<div class="peek" id="peek"><img alt=""></div>
-
-<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Проект">
-  <div class="glow" id="glow"></div><div class="shade"></div>
-  <div class="vtop"><span>Алина Градинар — Работы</span><button class="close" id="close" aria-label="Закрыть">×</button></div>
-  <div class="stage">
-    <div class="shot"><img id="shot" alt=""></div>
-    <div class="info" id="info"></div>
+<div class="case" id="case" aria-hidden="true">
+  <div class="veil" id="veil"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="ctitle">
+    <div class="sbar">
+      <button class="pill" id="back">← Все проекты</button>
+      <span class="n" id="cn"></span>
+      <button class="pill" id="prev" aria-label="Предыдущий проект">←</button>
+      <button class="pill" id="nextb" aria-label="Следующий проект">→</button>
+    </div>
+    <div id="cwrap"></div>
   </div>
 </div>
 
 <script>
 const P=[
-  {t:'Forbes Games',client:'Forbes',kind:'Веб · Спецпроект',c:'#f4c542',k:'#111',img:'img/forbes.jpg',s:'img/forbes_s.jpg',file:'forbes_games.jpg',
-   d:'Игровой модуль на сайте Forbes: интеллектуальные игры для ума и души. Проект получил Silver Mercury в номинации «Лучший диджитал-проект».',url:'https://games.forbes.ru/',badge:'Silver Mercury 2026'},
-  {t:'AI-сервис для интерьера',client:'NDA',kind:'Продукт · AI',c:'#c9b8ff',k:'#111',img:'img/interior.jpg',s:'img/interior_s.jpg',file:'ai_interior_nda.jpg',
-   d:'ИИ-платформа для интерьера: по фото создаёт или улучшает пространство, от ремонта и меблировки до готовой визуализации за минуты. Проект под NDA, сейчас в работе.',badge:'В работе'},
-  {t:'Авиакомпания «Ямал»',client:'Ямал',kind:'Веб · Личный кабинет',c:'#2f6fe0',k:'#fff',img:'img/yamal.jpg',s:'img/yamal_s.jpg',file:'yamal_airlines.jpg',
-   d:'Сайт авиакомпании, личный кабинет пассажира и сценарий оформления заказа.'},
-  {t:'Сибгипрошахт',client:'sgsh.ru',kind:'Корпоративный сайт',c:'#1f6f63',k:'#fff',img:'img/sgsh.gif',s:'img/sgsh_s.jpg',file:'sibgiproshakht.gif',
-   d:'Корпоративный сайт проектного института: обогатительные фабрики, шахты и разрезы.',url:'https://sgsh.ru/'},
-  {t:'Aquro',client:'aquro.ru',kind:'Лендинг · Каталог',c:'#ff9ecf',k:'#111',img:'img/aquro.jpg',s:'img/aquro_s.jpg',file:'aquro_landing.jpg',
-   d:'Продуктовый лендинг с каталогом продукции.',url:'https://aquro.ru/'},
-  {t:'REUZEit',client:'США',kind:'Маркетплейс · B2B',c:'#3ccf7a',k:'#111',img:'img/reuzeit.jpg',s:'img/reuzeit_s.jpg',file:'reuzeit_platform.jpg',
-   d:'Калифорнийская платформа для продажи б/у лабораторного, медицинского и промышленного оборудования.',url:'https://reuzeit.com/'},
-  {t:'Генерация изображений',client:'AI',kind:'AI-визуалы',c:'#ff3d7f',k:'#fff',img:'img/gen.jpg',s:'img/gen_s.jpg',file:'ai_generation.jpg',
-   d:'Предметные изображения и визуалы, созданные с помощью нейросетей.'}
+ {id:'forbes',t:'Forbes Games',f:'site',wide:1,c:'#0d0b08',cover:'img/forbes-laptop.jpg',
+  tags:['Веб','Мобайл','2026'],award:'Silver Mercury',
+  s:'Игровой раздел на сайте Forbes. Silver Mercury в номинации «Лучший диджитал-проект».',
+  facts:[['Клиент','Forbes Russia'],['Роль','UX/UI-дизайн'],['Платформы','Десктоп и мобайл'],['Награда','Silver Mercury 2026']],
+  text:['Интеллектуальные игры для читателей Forbes: квизы на эрудицию, логику и стратегию прямо на сайте издания.','Спроектировала главную игрового раздела и сценарий квиза: старт, вопросы с подсказкой из материалов Forbes, результат и переход к подписке. Тёмная подача с золотыми акцентами продолжает стиль бренда.'],
+  url:'https://games.forbes.ru/',urlT:'Открыть Forbes Games',
+  gal:[{src:'img/forbes-laptop.jpg'},{duo:['img/forbes-phone.jpg','img/forbes-start.jpg']},{src:'img/forbes.jpg'}]},
+ {id:'ultra',t:'ГК «Ультра»',f:'concept',c:'#2a1f4d',cover:'img/ultra-home.jpg',frame:1,label:'Концепт',
+  tags:['Концепт','Каталог','B2B'],
+  s:'Концепция сайта российского производителя расходомеров и уровнемеров.',
+  facts:[['Клиент','ГК «Ультра»'],['Роль','Концепция, UX/UI'],['Страницы','Главная, каталог, карточка'],['Год','2026']],
+  text:['Задача — показать производителя КИПиА технологичной компанией с собственной метрологической базой и сделать каталог сложных приборов понятным.','Тёмная техническая эстетика, 3D-прибор на первом экране и сцена «внутрь прибора» при прокрутке. В каталоге — умный фильтр по среде, сигналу и исполнению, «подбор за 10 секунд» на главной и карточка прибора с ключевыми характеристиками и запросом ТКП.'],
+  url:'https://alinagradinar99-afk.github.io/ultra-concept/',urlT:'Смотреть концепт',
+  gal:[{src:'img/ultra-home.jpg'},{src:'img/ultra-catalog.jpg'},{src:'img/ultra-product.jpg'}]},
+ {id:'ai',t:'AI-сервис для интерьера',f:'product',c:'#e3ddf3',cover:'img/interior.jpg',frame:1,label:'NDA · в работе',
+  tags:['Продукт','AI','Мобайл'],
+  s:'ИИ-платформа: по фото делает редизайн, меблировку и визуализацию за минуты.',
+  facts:[['Клиент','NDA'],['Роль','UX/UI-дизайн продукта'],['Платформы','Веб и мобайл'],['Статус','В работе']],
+  text:['ИИ-платформа для интерьера: по фотографии создаёт или улучшает пространство — от ремонта и меблировки до готовой визуализации.','Проектирую веб- и мобильную версию: дашборд, сценарии редизайна, меблировки и расхламления, выбор параметров генерации, библиотеку проектов и уведомления. Экраны скрыты по NDA.'],
+  gal:[{src:'img/interior.jpg'},{src:'img/ai-mobile.jpg'}]},
+ {id:'buildeng',t:'BuildEng',f:'concept',c:'#b9cad9',cover:'img/buildeng-home.jpg',frame:1,label:'Концепт',
+  tags:['Концепт','E-com','B2B'],
+  s:'Концепция главной для поставщика инженерного оборудования.',
+  facts:[['Клиент','BuildEng'],['Роль','Концепция, UX/UI'],['Объём','Главная страница, десктоп'],['Год','2026']],
+  text:['Задача — показать поставщика инженерного оборудования современной технологичной компанией: экспертиза B2B и удобство интернет-магазина.','Шапка с поиском по названию, артикулу и бренду, регионом и входом для юрлиц; первый экран с видео и подборкой оборудования; каталог категорий с брендами и количеством позиций; блок инженерных решений и подбора.'],
+  url:'https://alinagradinar99-afk.github.io/buildeng-site/',urlT:'Смотреть концепт',
+  gal:[{src:'img/buildeng-home.jpg'},{src:'img/buildeng-catalog.jpg'}]},
+ {id:'yamal',t:'Авиакомпания «Ямал»',f:'site',c:'#2f6aa8',cover:'img/yamal.jpg',
+  tags:['Веб','Личный кабинет'],
+  s:'Сайт авиакомпании, личный кабинет пассажира и оформление заказа.',
+  facts:[['Клиент','Авиакомпания «Ямал»'],['Роль','UX/UI-дизайн'],['Объём','Сайт, ЛК, заказ'],['Тип','Веб-сервис']],
+  text:['Сайт авиакомпании с личным кабинетом пассажира и сценарием оформления заказа.'],
+  gal:[{src:'img/yamal.jpg'}]},
+ {id:'reuzeit',t:'REUZEit',f:'product',wide:1,c:'#1d7a47',cover:'img/reuzeit.jpg',
+  tags:['Маркетплейс','B2B','США'],
+  s:'Калифорнийская платформа для продажи б/у лабораторного и промышленного оборудования.',
+  facts:[['Клиент','REUZEit, США'],['Роль','UX/UI-дизайн'],['Тип','B2B-маркетплейс'],['Язык','Английский']],
+  text:['Платформа из Калифорнии для продажи и покупки б/у лабораторного, медицинского и промышленного оборудования.','Личный кабинет компании: заявки, заказы, проекты, календарь вывоза и статистика по повторно использованному оборудованию.'],
+  url:'https://reuzeit.com/',urlT:'Открыть reuzeit.com',
+  gal:[{src:'img/reuzeit.jpg'}]},
+ {id:'sgsh',t:'Сибгипрошахт',f:'site',c:'#1b1b1b',cover:'img/sgsh_s.jpg',
+  tags:['Корпоративный сайт'],
+  s:'Корпоративный сайт проектного института для горной отрасли.',
+  facts:[['Клиент','Сибгипрошахт'],['Роль','UX/UI-дизайн'],['Тип','Корпоративный сайт'],['Адаптив','Десктоп и мобайл']],
+  text:['Корпоративный сайт института, который проектирует обогатительные фабрики, шахты и разрезы.'],
+  url:'https://sgsh.ru/',urlT:'Открыть sgsh.ru',
+  gal:[{src:'img/sgsh.gif'}]},
+ {id:'aquro',t:'Aquro',f:'site',c:'#dcd5e6',cover:'img/aquro.jpg',
+  tags:['Лендинг','Каталог'],
+  s:'Продуктовый лендинг с каталогом продукции.',
+  facts:[['Клиент','Aquro'],['Роль','UX/UI-дизайн'],['Тип','Лендинг с каталогом'],['Сайт','aquro.ru']],
+  text:['Продуктовый лендинг с каталогом продукции.'],
+  url:'https://aquro.ru/',urlT:'Открыть aquro.ru',
+  gal:[{src:'img/aquro.jpg'}]},
+ {id:'gen',t:'Генерация изображений',f:'product',wide:1,c:'#170e10',cover:'img/gen.jpg',
+  tags:['AI','Визуалы'],
+  s:'Предметные изображения и визуалы, созданные с помощью нейросетей.',
+  facts:[['Тип','AI-визуалы'],['Роль','Генерация изображений']],
+  text:['Предметные изображения и визуалы, созданные с помощью нейросетей.'],
+  gal:[{src:'img/gen.jpg'}]}
 ];
-const $=s=>document.querySelector(s);
-const pad=n=>String(n).padStart(2,'0');
-$('#total').textContent='('+pad(P.length)+')';
+const $=s=>document.querySelector(s), pad=n=>String(n).padStart(2,'0');
 
 // clock
-const tick=()=>{$('#clock').textContent='Краснодар '+new Date().toLocaleTimeString('ru-RU',{timeZone:'Europe/Moscow',hour:'2-digit',minute:'2-digit'})};
+const tick=()=>{$('#clock').textContent='UX/UI дизайнер · Краснодар '+new Date().toLocaleTimeString('ru-RU',{timeZone:'Europe/Moscow',hour:'2-digit',minute:'2-digit'})};
 tick();setInterval(tick,30000);
 
-// list
-const list=$('#list');
-P.forEach((p,i)=>{
-  const li=document.createElement('li');li.className='reveal';
-  li.innerHTML=`<button class="row" data-i="${i}" style="--c:${p.c};--k:${p.k}"><span class="t">${p.t}</span><span class="tag">${p.client} ↗ ${p.kind}</span><span class="n">${pad(i+1)}</span></button>`;
-  list.append(li);
-});
-// grid
+// intro words
+const lead=$('#lead');
+(function split(el){[...el.childNodes].forEach(n=>{
+  if(n.nodeType===3){const f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w)){f.append(w);return}const s=document.createElement('span');s.className='w';s.textContent=w;f.append(s)});n.replaceWith(f)}
+  else if(n.classList.contains('face')){n.classList.add('w')}
+  else split(n)})})(lead);
+lead.querySelectorAll('.w').forEach((w,i)=>w.style.transitionDelay=i*35+'ms');
+requestAnimationFrame(()=>setTimeout(()=>lead.classList.add('in'),80));
+
+// cards
 const grid=$('#grid');
 P.forEach((p,i)=>{
-  const b=document.createElement('button');b.className='card';b.dataset.i=i;
-  b.innerHTML=`<div class="box" style="--c:${p.c};--k:${p.k}"><small>${p.client}<br>${p.kind}</small><h3>${p.t}</h3><img src="${p.s}" alt="" loading="lazy"></div><p>${p.d.split('.')[0]}.</p>`;
+  const b=document.createElement('button');b.className='card'+(p.wide?' wide':'');b.dataset.i=i;b.dataset.f=p.f;
+  b.innerHTML=`<div class="shot${p.frame?' frame':''}" style="--c:${p.c}"><img src="${p.cover}" alt="${p.t}" loading="lazy">${p.label?`<span class="lbl">${p.label}</span>`:''}</div>
+  <div class="meta"><div><h3>${p.t} <i>↗</i></h3><p>${p.s}</p></div><div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div></div>`;
   grid.append(b);
 });
-// desk
-const table=$('#table');
-const spots=[[6,8,-6],[34,4,4],[64,10,-3],[14,50,5],[44,42,-5],[72,52,6],[30,72,-2]];
-P.forEach((p,i)=>{
-  const f=document.createElement('div');f.className='file';f.dataset.i=i;f.dataset.drag='';
-  const [x,y,r]=spots[i];f.style.left=x+'%';f.style.top=y+'%';f.style.rotate=r+'deg';
-  f.innerHTML=`<img src="${p.s}" alt=""><span style="--c:${p.c}"><i></i>${p.file}</span>`;
-  table.append(f);
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);
+  const c=e.target.querySelector('[data-count]');if(c)count(c)}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.card,.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.stat').forEach((s,i)=>s.style.transitionDelay=i*90+'ms');
+function count(el){const to=+el.dataset.count,t0=performance.now();
+  (function f(t){const k=Math.min(1,(t-t0)/1100),v=Math.round(to*(1-Math.pow(1-k,3)));el.firstChild.textContent=v;if(k<1)requestAnimationFrame(f)})(t0)}
+
+// filter
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  const f=b.dataset.f;let n=0;
+  grid.querySelectorAll('.card').forEach(c=>{const on=f==='all'||c.dataset.f===f;c.hidden=!on;if(on)n++;
+    c.classList.toggle('wide',f==='all'&&!!P[c.dataset.i].wide);
+    if(on){c.classList.remove('in');requestAnimationFrame(()=>requestAnimationFrame(()=>c.classList.add('in')))}});
+  $('#cnt').textContent=pad(n);
 });
 
-// reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
-const watch=()=>document.querySelectorAll('.reveal:not(.in),.card:not(.in)').forEach((el,k)=>{el.style.transitionDelay=(k%8)*70+'ms';el.querySelector('.row')&&(el.querySelector('.row').style.transitionDelay=(k%8)*70+'ms');io.observe(el)});
-watch();
+// cursor
+const cur=$('#cursor');let cx=0,cy=0,tx=0,ty=0;
+addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});
+(function loop(){cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;cur.style.transform=`translate(${cx}px,${cy}px)`;requestAnimationFrame(loop)})();
+grid.addEventListener('pointerover',e=>{const s=e.target.closest('.shot');cur.classList.toggle('on',!!s)});
+grid.addEventListener('pointerleave',()=>cur.classList.remove('on'));
 
-// view toggle
-document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  const v=b.dataset.view;
-  list.style.display=v==='list'?'block':'none';
-  grid.style.display=v==='grid'?'grid':'none';
-  $('#desk').style.display=v==='desk'?'block':'none';
-  if(v==='list'){document.querySelectorAll('.reveal').forEach(el=>el.classList.remove('in'));requestAnimationFrame(watch)}
-  if(v==='grid'){document.querySelectorAll('.card').forEach(el=>el.classList.remove('in'));requestAnimationFrame(watch)}
-});
-
-// hover peek following cursor
-const peek=$('#peek'),pimg=peek.querySelector('img');
-let mx=0,my=0,px=0,py=0;
-addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
-(function loop(){px+=(mx-px)*.16;py+=(my-py)*.16;peek.style.transform=`translate(${px+24}px,${py-100}px)`;requestAnimationFrame(loop)})();
-list.addEventListener('pointerover',e=>{const r=e.target.closest('.row');if(!r)return;pimg.src=P[r.dataset.i].s;peek.classList.add('on')});
-list.addEventListener('pointerleave',()=>peek.classList.remove('on'));
-
-// drag (stickers + files); short press on a file = open
-document.querySelectorAll('[data-drag]').forEach(el=>{
-  el.addEventListener('pointerdown',e=>{
-    e.preventDefault();el.setPointerCapture(e.pointerId);
-    const sx=e.clientX,sy=e.clientY;let moved=false;
-    const base=el.style.translate.split(' ').map(parseFloat);let bx=base[0]||0,by=base[1]||0;
-    el.style.zIndex=++z;document.querySelectorAll('.file').forEach(f=>f.classList.toggle('sel',f===el));
-    const mv=ev=>{const dx=ev.clientX-sx,dy=ev.clientY-sy;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;el.style.translate=`${bx+dx}px ${by+dy}px`};
-    const up=()=>{el.removeEventListener('pointermove',mv);el.removeEventListener('pointerup',up);if(!moved&&el.classList.contains('file'))open(+el.dataset.i)};
-    el.addEventListener('pointermove',mv);el.addEventListener('pointerup',up);
-  });
-});
-let z=10;
-
-// viewer
-const viewer=$('#viewer'),shot=$('#shot'),info=$('#info'),glow=$('#glow');
-let cur=0;
-function render(){
-  const p=P[cur],nx=P[(cur+1)%P.length];
-  glow.style.backgroundImage=`url(${p.s})`;
-  shot.classList.remove('enter');void shot.offsetWidth;shot.src=p.img;shot.alt=p.t;shot.classList.add('enter');
-  info.classList.remove('enter');void info.offsetWidth;
-  info.innerHTML=`<span class="kind">${p.client} — ${p.kind}</span><h3>${p.t}</h3>${p.badge?`<span class="badge">${p.badge}</span>`:''}<p>${p.d}</p>${p.url?`<a class="go" href="${p.url}" target="_blank" rel="noopener">Открыть сайт ↗</a>`:''}
-  <div class="nav"><button id="prev" aria-label="Предыдущий">←</button><button id="next" aria-label="Следующий">→</button><div class="next-peek" id="np" title="${nx.t}"><img src="${nx.s}" alt=""></div><span class="count">${pad(cur+1)} / ${pad(P.length)}</span></div>`;
-  info.classList.add('enter');
-  $('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);$('#np').onclick=()=>go(1);
+// case sheet
+const cs=$('#case'),sheet=$('#sheet'),cwrap=$('#cwrap');let ci=-1;
+function render(i){
+  ci=i;const p=P[i],nx=P[(i+1)%P.length];
+  const gal=p.gal.map(g=>g.duo?`<figure class="duo">${g.duo.map(s=>`<img src="${s}" alt="" loading="lazy">`).join('')}</figure>`:`<figure style="--c:${p.c}"><img src="${g.src}" alt="${p.t}" loading="lazy"></figure>`).join('');
+  cwrap.innerHTML=`<div class="cbody">
+    <div class="ctags">${p.label?`<span>${p.label}</span>`:''}${p.award?`<span class="hl">${p.award}</span>`:''}${p.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+    <h2 id="ctitle">${p.t}</h2>
+    <div class="cgrid"><div class="facts">${p.facts.map(([k,v])=>`<div><small>${k}</small>${v}</div>`).join('')}</div>
+      <div class="ctext">${p.text.map(t=>`<p>${t}</p>`).join('')}${p.url?`<a class="pill dark go" href="${p.url}" target="_blank" rel="noopener">${p.urlT} ↗</a>`:''}</div></div>
+    <div class="gallery">${gal}</div>
+  </div>
+  <button class="next" id="nx"><div><small>Следующий проект</small><b>${nx.t} →</b></div><img src="${nx.cover}" alt=""></button>`;
+  $('#cn').textContent=pad(i+1)+' / '+pad(P.length);
+  $('#nx').onclick=()=>show((i+1)%P.length);
+  sheet.scrollTop=0;
+  requestAnimationFrame(()=>cwrap.firstElementChild.classList.add('in'));
 }
-function go(d){cur=(cur+d+P.length)%P.length;render()}
-function open(i){cur=i;viewer.classList.add('open');document.body.style.overflow='hidden';peek.classList.remove('on');render();$('#close').focus()}
-function close(){viewer.classList.remove('open');document.body.style.overflow=''}
-document.addEventListener('click',e=>{const t=e.target.closest('.row,.card');if(t)open(+t.dataset.i)});
-$('#close').onclick=close;
-addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-let tx=0;viewer.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
-viewer.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)go(d<0?1:-1)});
+function show(i,push=true){render(i);if(push)history.replaceState(null,'','#'+P[i].id);
+  if(!cs.classList.contains('open')){cs.classList.add('open');cs.setAttribute('aria-hidden','false');document.body.classList.add('lock');cur.classList.remove('on');setTimeout(()=>$('#back').focus({preventScroll:true}),50)}}
+function hide(){cs.classList.remove('open');cs.setAttribute('aria-hidden','true');document.body.classList.remove('lock');history.replaceState(null,'',location.pathname);const c=grid.querySelector(`[data-i="${ci}"]`);c&&c.focus({preventScroll:true})}
+grid.addEventListener('click',e=>{const c=e.target.closest('.card');if(c)show(+c.dataset.i)});
+$('#back').onclick=hide;$('#veil').onclick=hide;
+$('#prev').onclick=()=>show((ci-1+P.length)%P.length);$('#nextb').onclick=()=>show((ci+1)%P.length);
+addEventListener('keydown',e=>{if(!cs.classList.contains('open'))return;if(e.key==='Escape')hide();if(e.key==='ArrowRight')show((ci+1)%P.length);if(e.key==='ArrowLeft')show((ci-1+P.length)%P.length)});
+const fromHash=()=>{const i=P.findIndex(p=>'#'+p.id===location.hash);if(i>-1)show(i,false)};
+fromHash();
 </script>
 </body>
 </html>

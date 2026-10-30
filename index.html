@@ -135,15 +135,15 @@ footer a:hover{color:var(--ink)}
 .case.open .sheet{transform:none}
 .sbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:8px;padding:12px var(--g);background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .sbar .n{margin-left:auto;color:var(--mute);font-size:14px;font-variant-numeric:tabular-nums;margin-right:6px}
-.cbody{padding:5vh var(--g) 0}
+.cbody{padding:6vh clamp(16px,10vw,200px) 0}
 .cbody>*{opacity:0;transform:translateY(20px)}
 .cbody.in>*{animation:rise .8s var(--ease) forwards}
 .cbody.in>*:nth-child(2){animation-delay:.07s}.cbody.in>*:nth-child(3){animation-delay:.14s}.cbody.in>*:nth-child(n+4){animation-delay:.21s}
 @keyframes rise{to{opacity:1;transform:none}}
 .ctags{display:flex;flex-wrap:wrap;gap:6px}
-.ctags span{padding:6px 10px;border-radius:4px;background:rgba(17,17,17,.06);font-size:14px}
-.ctags span.gold{background:#f1c94b}
-.cbody h2{font-weight:600;font-size:clamp(42px,7.5vw,120px);letter-spacing:-.025em;line-height:.94;margin:22px 0 0}
+.ctags span{padding:5px 10px;border-radius:4px;border:1px solid rgba(17,17,17,.16);font-size:14px;color:#3b3a37}
+.ctags span.gold{border-color:#d9b24a;color:#7a5b10}
+.cbody h2{font-weight:600;font-size:clamp(30px,3.6vw,52px);letter-spacing:-.02em;line-height:1.1;margin:22px 0 0}
 .cgrid{display:grid;grid-template-columns:1fr 2fr;gap:var(--g);margin-top:7vh;padding-top:20px;border-top:1px solid var(--line)}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:18px 12px;align-content:start}
 .facts div{font-size:15px;line-height:1.3}
@@ -156,7 +156,7 @@ footer a:hover{color:var(--ink)}
 .gallery figure.duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--g);background:none;border-radius:0;overflow:visible}
 .gallery figure.duo img{border-radius:var(--r);width:100%;height:100%;object-fit:cover}
 .gallery img{width:100%}
-.next{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:12vh var(--g) 0;padding:22px 0 26px;border-top:1px solid var(--line);cursor:pointer;width:calc(100% - 2*var(--g));text-align:left}
+.next{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:12vh clamp(16px,10vw,200px) 0;padding:22px 0 26px;border-top:1px solid var(--line);cursor:pointer;width:calc(100% - 2*clamp(16px,10vw,200px));text-align:left}
 .next small{display:block;color:var(--mute);font-size:15px;margin-bottom:8px}
 .next b{display:inline-block;font-weight:600;font-size:clamp(34px,5.5vw,88px);letter-spacing:-.025em;line-height:.95;transition:transform .5s var(--ease)}
 .next:hover b{transform:translateX(12px)}
@@ -222,12 +222,12 @@ footer a:hover{color:var(--ink)}
 
 <script>
 const P=[
- {id:'ai',sub:'Продукт под NDA, в работе',d:'Проектирую веб- и мобильную версию ИИ-платформы, которая по фото делает редизайн, меблировку и визуализацию: дашборд, сценарии генерации, библиотеку проектов.',note:'',f:'product',t:'AI-сервис для интерьера',cat:'Продукт · NDA',c:'#e3ddf3',cover:'img/cover-ai.webp?v=2',coverW:'img/cover-ai-w.jpg',label:'NDA',
+ {id:'ai',sub:'Продукт под NDA, в работе',d:'Проектирую веб- и мобильную версию ИИ-платформы, которая по фото делает редизайн, меблировку и визуализацию: дашборд, сценарии генерации, библиотеку проектов.',note:'',f:'product',t:'AI-сервис для интерьера',cat:'Продукт · NDA',c:'#e3ddf3',cover:'img/cover-ai-phones.webp',coverW:'img/cover-ai-w.jpg',label:'NDA',
   tags:['Продукт','AI','Мобайл'],
   s:'ИИ-платформа: по фото делает редизайн, меблировку и визуализацию за минуты.',
   facts:[['Клиент','NDA'],['Роль','UX/UI-дизайн продукта'],['Платформы','Веб и мобайл'],['Статус','В работе']],
-  text:['ИИ-платформа для интерьера: по фотографии создаёт или улучшает пространство — от ремонта и меблировки до готовой визуализации.','Проектирую веб- и мобильную версию: дашборд, сценарии редизайна, меблировки и расхламления, выбор параметров генерации, библиотеку проектов и уведомления. Экраны скрыты по NDA.'],
-  gal:[{src:'img/interior.jpg'},{src:'img/ai-mobile.jpg'}]},
+  text:['ИИ-платформа для интерьера: по фотографии создаёт или улучшает пространство — от ремонта и меблировки до готовой визуализации.','Проектирую веб- и мобильную версию: дашборд, сценарии редизайна, меблировки и расхламления, выбор параметров генерации, библиотеку проектов и уведомления.'],
+  gal:[{src:'img/ai-dashboard.webp'},{src:'img/ai-upload.webp'},{src:'img/ai-gallery.webp'},{src:'img/ai-feed-open.webp'},{src:'img/ai-session-open.webp'},{src:'img/ai-account.webp'}]},
  {id:'forbes',sub:'Спецпроект для Forbes, Silver Mercury, 2026',d:'Спроектировала игровой раздел на сайте Forbes: квизы на эрудицию, логику и стратегию для десктопа и мобайла. Проект получил Silver Mercury в номинации «Лучший диджитал-проект».',note:'',f:'site',t:'Forbes Games',cat:'Спецпроект · Веб и мобайл',c:'#0d0b08',cover:'img/cover-forbes.jpg',coverW:'img/cover-forbes-w.jpg',
   tags:['Веб','Мобайл','2026'],award:'Silver Mercury',
   s:'Игровой раздел на сайте Forbes. Silver Mercury в номинации «Лучший диджитал-проект».',

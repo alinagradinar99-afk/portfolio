@@ -280,13 +280,7 @@ const P=[
   facts:[['Клиент','Aquro'],['Роль','UX/UI-дизайн'],['Тип','Лендинг с каталогом'],['Сайт','aquro.ru']],
   text:['Продуктовый лендинг с каталогом продукции.'],
   url:'https://aquro.ru/',urlT:'Открыть aquro.ru',
-  gal:[{src:'img/aquro.jpg'}]},
- {id:'gen',sub:'AI-визуалы',d:'Предметные изображения и визуалы, созданные с помощью нейросетей.',note:'',f:'product',t:'Генерация изображений',cat:'AI-визуалы',c:'#170e10',cover:'img/cover-gen.jpg',coverW:'img/cover-gen-w.jpg',
-  tags:['AI','Визуалы'],
-  s:'Предметные изображения и визуалы, созданные с помощью нейросетей.',
-  facts:[['Тип','AI-визуалы'],['Роль','Генерация изображений']],
-  text:['Предметные изображения и визуалы, созданные с помощью нейросетей.'],
-  gal:[{src:'img/gen.jpg'}]}
+  gal:[{src:'img/aquro.jpg'}]}
 ];
 const NB=/(^|[\s(«„"])(в|во|и|а|но|с|со|к|ко|о|об|у|я|на|по|для|от|до|из|за|не|ни|что|без|под|при|про|над|как|или|это|их|его|её)\s+/gi;
 function typo(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const t=n.nodeValue.replace(NB,(m,a,b)=>a+b+'\u00a0').replace(NB,(m,a,b)=>a+b+'\u00a0').replace(/\s+—/g,'\u00a0—');if(t!==n.nodeValue)n.nodeValue=t}}

@@ -273,14 +273,7 @@ const P=[
   facts:[['Клиент','Сибгипрошахт'],['Роль','UX/UI-дизайн'],['Тип','Корпоративный сайт'],['Адаптив','Десктоп и мобайл']],
   text:['Корпоративный сайт института, который проектирует обогатительные фабрики, шахты и разрезы.'],
   url:'https://sgsh.ru/',urlT:'Перейти на sgsh.ru',
-  gal:[{src:'img/sgsh-about.webp'},{src:'img/sgsh-contacts.webp'},{src:'img/sgsh-map.webp'}]},
- {id:'aquro',sub:'Лендинг с каталогом',d:'Продуктовый лендинг бренда бутылок и термокружек с каталогом продукции.',note:'',f:'site',t:'Aquro',cat:'Сайт · Лендинг',c:'#dcd5e6',cover:'img/cover-aquro.jpg',coverW:'img/cover-aquro-w.jpg',
-  tags:['Лендинг','Каталог'],
-  s:'Продуктовый лендинг с каталогом продукции.',
-  facts:[['Клиент','Aquro'],['Роль','UX/UI-дизайн'],['Тип','Лендинг с каталогом'],['Сайт','aquro.ru']],
-  text:['Продуктовый лендинг с каталогом продукции.'],
-  url:'https://aquro.ru/',urlT:'Перейти на aquro.ru',
-  gal:[{src:'img/aquro.jpg'}]}
+  gal:[{src:'img/sgsh-about.webp'},{src:'img/sgsh-contacts.webp'},{src:'img/sgsh-map.webp'}]}
 ];
 const NB=/(^|[\s(«„"])(в|во|и|а|но|с|со|к|ко|о|об|у|я|на|по|для|от|до|из|за|не|ни|что|без|под|при|про|над|как|или|это|их|его|её)\s+/gi;
 function typo(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const t=n.nodeValue.replace(NB,(m,a,b)=>a+b+'\u00a0').replace(NB,(m,a,b)=>a+b+'\u00a0').replace(/\s+—/g,'\u00a0—');if(t!==n.nodeValue)n.nodeValue=t}}
